@@ -1,24 +1,38 @@
-# README
+# Forever my friends
+​
+## サイト概要
+### サイトテーマ
+自身の大切な人との予定を管理することができ、行きたい場所を検索し投稿できるサイト
+​
+### テーマを選んだ理由
+人間関係は重要な自身の社会資本でありますが、私自身社会人になると仕事や、自身の用事などで忙しく、プライベートで友人や家族との時間は疎かになりがちであったり、
+疎遠になってしまうことがありました。<br>そこで自身の大切にしている人もしくは、これから関係を深めていきたい人をフレンド登録し（以下フレンドとする）、設定した定期毎に
+通知がいくような仕組みにして疎遠を無くし、フレンドとの思い出を作りたい。<br>
+またフレンドとの時間をより大切にできるように行き先のレビューを投稿、閲覧できるようなサービスがあればいいという思いから、このテーマにしました。
+​
+### ターゲットユーザー
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+・プライベートで友人との時間を作りたいのに仕事などで二の次になってしまっている人<br>
+・大切な人と色々な場所に行きたいと思っている人
+​
+### 主な利用シーン
+・友人の誕生日や記念日を管理したい時、または閲覧したい時<br>
+・フレンド登録した人との思い出を見返したい時<br>
+・行きたい場所へ行った人の感想を聞きたい時<br>
+・自分が行った場所を投稿する時
+​
+## 設計書
+<!--テーマを設定・提出する時点では不要です-->
+​
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
+​
+## 使用素材
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
+- アプリケーションの実装に使用したgem/bootstrapのリファレンスなどの記載は不要です。
+- 使用しない場合は、使用素材の項目をREADMEから削除してください。
+折りたたむ
