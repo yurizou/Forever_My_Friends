@@ -25,7 +25,10 @@
 ​
 ## 設計書
  - https://xd.adobe.com/view/61427e2d-fe4d-4cad-8aa3-51dfeaccc305-3411/
-​
+ - 
+## 実装機能リストURL
+ -　https://docs.google.com/spreadsheets/d/1oc8870Pmf3-QimtlCIfgTTaOJcs_TLSSl-2OErhXdcQ/edit?usp=sharing
+ 
 ## 開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
@@ -35,5 +38,3 @@
 ​
 ## 使用素材
 
-## 実装機能リストURL
-https://docs.google.com/spreadsheets/d/1oc8870Pmf3-QimtlCIfgTTaOJcs_TLSSl-2OErhXdcQ/edit?usp=sharing
