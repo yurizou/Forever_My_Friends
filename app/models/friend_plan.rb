@@ -1,0 +1,2 @@
+class FriendPlan < ApplicationRecord
+end
