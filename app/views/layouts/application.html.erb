@@ -11,13 +11,40 @@
   </head>
 
   <body>
-
+    <header>
+       <%= link_to "ロゴ", root_path, class: "text-danger" %>
+       <% if user_sign_in? %>
+       <h3>ようこそ、<%= current_user.last_name %>さん！</h3>
+       <% end %>
+    </header>
      <%= yield %>
     <footer>
       <% if user_signed_in? %>
         <li>
+          <%= link_to "My情報", **** %>
+        </li>
+        <li>
+           <%= link_to "フレンドリスト", ****, %>
+        </li>
+        <li>
+           <%= link_to "カレンダー", **** %>
+        </li>
+        <li>
+           <%= link_to "スケジュール", ***** %>
+        </li>
+        <li>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
         </li>
+      
+    　<% elsif admin_sign_in? %>
+    　<li>
+    　   <%= link_to "トピック管理",*****  %>
+    　</li>
+    　
+    　<li>
+    　   <%= link_to "ログアウト",***** %>
+    　</li>
+    　  
       <% else %>
         <li>
           <%= link_to "新規登録", new_user_registration_path %>
@@ -26,6 +53,11 @@
           <%= link_to "ログイン", new_user_session_path %>
         </li>
       <% end %>
+      
+      
+    
+      
+      
     </footer>
 
   </body>

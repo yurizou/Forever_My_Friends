@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
 
-   scope module: :public do
+   namespace :public do
+      root to: 'homes#top'
      
-     root to: 'homes#top'
      
    end
   
   namespace :admin do
-    root to: 'homes#top'
+     root to: 'homes#top'
+    
   end
 
 
