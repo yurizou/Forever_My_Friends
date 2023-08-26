@@ -12,39 +12,43 @@
 
   <body>
     <header>
-       <%= link_to "ロゴ", root_path, class: "text-danger" %>
-       <% if user_sign_in? %>
+       <% if user_signed_in? %>
+       <%= link_to "ロゴ", public_root_path %>
        <h3>ようこそ、<%= current_user.last_name %>さん！</h3>
+       <% elsif admin_signed_in? %>
+       <%= link_to "ロゴ", admin_root_path %>
+       <% else %>
+       <%= link_to "ロゴ", public_root_path %>
        <% end %>
     </header>
      <%= yield %>
     <footer>
       <% if user_signed_in? %>
         <li>
-          <%= link_to "My情報", **** %>
+          <%= link_to "My情報", public_users_my_page_path %>
         </li>
         <li>
-           <%= link_to "フレンドリスト", ****, %>
+           <%= link_to "フレンドリスト", public_friends_path %>
         </li>
+        <!--<li>-->
+           <!--<%#= link_to "カレンダー", **** %>-->
+        <!--</li>-->
         <li>
-           <%= link_to "カレンダー", **** %>
-        </li>
-        <li>
-           <%= link_to "スケジュール", ***** %>
+           <%= link_to "スケジュール",  public_plans_path %>
         </li>
         <li>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
         </li>
-      
-    　<% elsif admin_sign_in? %>
+
+    　<% elsif admin_signed_in? %>
     　<li>
-    　   <%= link_to "トピック管理",*****  %>
+    　   <%= link_to "トピック管理", admin_topics_path  %>
     　</li>
-    　
+
     　<li>
-    　   <%= link_to "ログアウト",***** %>
+    　   <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
     　</li>
-    　  
+
       <% else %>
         <li>
           <%= link_to "新規登録", new_user_registration_path %>
@@ -53,11 +57,11 @@
           <%= link_to "ログイン", new_user_session_path %>
         </li>
       <% end %>
-      
-      
-    
-      
-      
+
+
+
+
+
     </footer>
 
   </body>
