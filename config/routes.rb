@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       resources :friends
       resources :plans
       get 'users/my_page' => 'users#show'
-      get 'users/edit' => 'uers#edit'
+      get 'users/edit' => 'users#edit'
       get 'users/confirm' => 'users#confirm'
       patch 'users/info' => 'users#update'
       patch 'users/quit' => 'users#quit'
