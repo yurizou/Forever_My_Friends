@@ -5,18 +5,18 @@ Rails.application.routes.draw do
       resources :genres, only: [:index, :create, :edit, :update]
       resources :friends
       resources :plans
-      get 'users/my_page' => 'userss#show'
+      get 'users/my_page' => 'users#show'
       get 'users/edit' => 'uers#edit'
       get 'users/confirm' => 'users#confirm'
       patch 'users/info' => 'users#update'
       patch 'users/quit' => 'users#quit'
-      
+
    end
-  
+
   namespace :admin do
      root to: 'homes#top'
      resources :topics
-    
+
   end
 
 
@@ -31,6 +31,6 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: "public/sessions"
   }
-  
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
