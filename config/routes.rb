@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-
+     root to: 'public/homes#top'
    namespace :public do
-      root to: 'homes#top'
       resources :genres, only: [:index, :create, :edit, :update]
       resources :friends
       resources :plans
@@ -14,8 +13,7 @@ Rails.application.routes.draw do
    end
 
   namespace :admin do
-     root to: 'homes#top'
-     resources :topics
+    resources :topics
 
   end
 
