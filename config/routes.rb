@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
      root to: 'public/homes#top'
-   namespace :public do
+   scope module: :public do
       resources :genres, only: [:index, :create, :edit, :update]
       resources :friends
       resources :plans

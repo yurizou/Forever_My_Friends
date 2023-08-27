@@ -7,10 +7,6 @@ class Public::PlansController < ApplicationController
     
   end
   
-  def newplan
-    
-  end
-  
   def create
     
   end
