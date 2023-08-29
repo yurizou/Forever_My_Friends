@@ -1,0 +1,8 @@
+<h2>トピック一覧</h2>
+
+<%= link_to "+", new_admin_topic_path %>
+<%= @yopics.each do |topic| %>
+
+<%= topic.title %>
+
+<% end %>

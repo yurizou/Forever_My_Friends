@@ -5,7 +5,7 @@ class Public::GenresController < ApplicationController
   end
   
   def create
-    @genre = Genre.find(params[:id])
+    @genre = Genre.new(params[:id])
     @genre.save
     redirect_to genres_path
   end

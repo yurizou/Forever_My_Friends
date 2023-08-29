@@ -8,7 +8,7 @@ class Admin::TopicsController < ApplicationController
   end
   
   def index
-    
+    @topics = Topic.all
   end
   
   def edit
@@ -22,4 +22,6 @@ class Admin::TopicsController < ApplicationController
   def update
     
   end
+  
+  
 end
