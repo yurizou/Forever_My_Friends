@@ -16,7 +16,7 @@
        <%= link_to "ロゴ", root_path %>
        <h3>ようこそ、<%= current_user.last_name %>さん！</h3>
        <% elsif admin_signed_in? %>
-       <%= link_to "ロゴ", admin_root_path %>
+       <%= link_to "ロゴ", root_path %>
        <% else %>
        <%= link_to "ロゴ", root_path %>
        <% end %>

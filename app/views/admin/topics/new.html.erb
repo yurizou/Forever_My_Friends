@@ -1,0 +1,17 @@
+<h2>トピック作成</h2>
+
+<%= form with model: @topic, url: admin_topics_path do |f| %>
+
+<%= f.label :カテゴリ %>
+<%= f.text_field :category %>
+
+<%= f.label :タイトル %>
+<%= f.text_field :title %>
+
+<%= f.label :メモ %>
+<%= f.text_area :article %>
+
+<%= f.label :写真イメージ %>
+<%= f.file_field :image %>
+
+<% end %>

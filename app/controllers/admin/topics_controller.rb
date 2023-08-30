@@ -1,6 +1,6 @@
 class Admin::TopicsController < ApplicationController
   def new
-    
+    @topic = Topic.new
   end
   
   def create
