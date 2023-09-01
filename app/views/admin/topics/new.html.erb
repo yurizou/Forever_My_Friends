@@ -8,10 +8,12 @@
 <%= f.label :タイトル %>
 <%= f.text_field :title %>
 
-<%= f.label :メモ %>
+<%= f.label :内容 %>
 <%= f.text_area :article %>
 
 <%= f.label :写真イメージ %>
 <%= f.file_field :image %>
+
+<%= f.submit "作成" %>
 
 <% end %>
