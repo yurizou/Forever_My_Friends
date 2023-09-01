@@ -1,1 +1,8 @@
 <h2>トピック詳細</h2>
+
+<%= link_to '編集', edit_admin_topic_path %>
+
+<%= image_tag @topic.image,size:"300x200" %>
+<p>カテゴリ</p><%= @topic.category %>
+<p>タイトル</p><%= @topic.title %>
+<p>内容</p><%= @topic.article %>
