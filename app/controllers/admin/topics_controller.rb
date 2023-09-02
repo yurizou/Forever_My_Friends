@@ -4,7 +4,12 @@ class Admin::TopicsController < ApplicationController
   end
 
   def create
-
+    @topic = Topic.new(topic_params)
+    if @topic.save
+      redirect_to admin_topic_path(@topic.id)
+    else
+      render:new
+    end
   end
 
   def index
@@ -12,20 +17,26 @@ class Admin::TopicsController < ApplicationController
   end
 
   def edit
-
+    @topic = Topic.find(params[:id])
+    
   end
 
   def show
-
+    
   end
 
   def update
-
+    
   end
 
  def destroy
    topics =Topic.find(params[:id])
    topics.destroy
    redirect_to admin_topics_path
+ end
+ 
+ private
+ def topic_params
+   params.require(:topic).permit(:category, :title, :article, :image)
  end
 end

@@ -1,6 +1,6 @@
 <h2>トピック作成</h2>
 
-<%= form with model: @topic, url: admin_topics_path do |f| %>
+<%= form_with model: @topic, url: admin_topics_path do |f| %>
 
 <%= f.label :カテゴリ %>
 <%= f.text_field :category %>
