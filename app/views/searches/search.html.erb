@@ -1,0 +1,15 @@
+<h2>検索結果一覧</h2>
+
+<table class="table table-hover table-inverse">
+  <!--検索対象モデルがUserの時 -->
+    <tbody>
+      <% @friends.each do |friend| %>
+        <tr>
+          <%# binding.pry %>
+         　<%#= link_to friend_path(friend) do %>
+            <td><%= link_to friend.nickname, friend_path(friend.id) %></td>
+          <%#end %>
+        </tr>
+      <% end %>
+    </tbody>
+</table>
