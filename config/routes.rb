@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: 'public/homes#top'
-
+  get "search" => "searches#search"
   devise_for :admins, skip: [:registrations, :passwords]  ,controllers: {
     sessions: "admin/sessions"
   }
