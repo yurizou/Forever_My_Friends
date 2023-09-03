@@ -9,8 +9,9 @@ class CreateFriends < ActiveRecord::Migration[6.1]
       t.string :first_name_kana, null: false
       t.string :nickname
       t.string :telephone_number
-      t.string :birthday
+      t.date :birthday
       t.string :hobby
+      t.integer :gender, default: 0
       t.timestamps
     end
   end

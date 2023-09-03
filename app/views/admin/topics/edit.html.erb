@@ -1,7 +1,7 @@
 <h2>トピック編集</h2>
 
-<%= link_to '削除', admin_topic_path(topic.id), method: :delete 
-<%= form with model: @topic, url: admin_topics_path, method: :patch do |f| %>
+<%= link_to '削除', admin_topic_path(@topic.id), method: :delete %>
+<%= form_with model: @topic, url: admin_topic_path, method: :patch do |f| %>
 
 <%= f.label :カテゴリ %>
 <%= f.text_field :category %>

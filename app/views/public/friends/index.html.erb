@@ -1,1 +1,19 @@
-<h2>フレンドのindexページ</h2>
+<h2>フレンド一覧</h2>
+
+<div>
+  <!--フレンド数を表示-->
+  フレンド<%= @friends.count %>人
+  <!--名前検索機能を実装-->
+  <%= link_to "+", new_friend_path %>
+</div>
+
+<div>
+  <% @friends.each do |friend| %>
+   <% if friend.image.attached? %>
+    <%= image_tag friend.image, size: "50x50" %>
+   <% else %>
+    <%= image_tag 'no_image', size:"50x50" %>
+   <% end %>
+   <%= friend.nickname %>
+  <% end %>
+</div>

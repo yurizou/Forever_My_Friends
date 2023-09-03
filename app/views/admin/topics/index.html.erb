@@ -1,8 +1,27 @@
 <h2>トピック一覧</h2>
 
-<%= link_to "+", new_admin_topic_path  %>
-<%= @topics.each do |topic| %>
+<%= link_to "+", new_admin_topic_path %>
+<div>
+    <% @topics.each do |topic| %>
 
-<%= topic.title %>
+    <%= link_to admin_topic_path(topic) do %>
+    <div> <!-- bootstrapのd-flexを利用 -->
+       <div>
+           <!--上のdivにbootstrapのrounded-circleを追記する-->
+         <div>
+           <%= topic.created_at.strftime("%Y") %>
+         </div>
+            <div>
+                <%= topic.created_at.strftime("%m/%d") %>
+            </div>
 
-<% end %>
+        </div>
+
+        <%= topic.title %>
+
+    </div>
+
+
+    <% end %>
+   <% end %>
+</div>
