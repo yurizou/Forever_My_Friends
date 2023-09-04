@@ -6,7 +6,7 @@ class Public::PlansController < ApplicationController
   
   def new
     @plan = Plan.new
-    @friend = current_user.friends
+    @friend = current_user.friend.all
   end
   
   def create

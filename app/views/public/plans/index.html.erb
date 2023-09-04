@@ -1,2 +1,22 @@
 <h2>スケジュール一覧</h2>
 
+<%= link_to "+", new_plan_path %>
+
+<div>
+    <% @plans.each do |plan| %>
+    <%= link_to plan_path(plan) do %>
+    <div>
+        <div>
+            <%= plan.plan_date.strftime("XY/Xm/Xd") %>
+        </div>
+        <% if @friend.image.attached? %>
+          <%= image_tag @friend.image, size: "50x50" %>
+          <% else %>
+          <%= image_tag 'no_image', size:"50x50" %>
+        <% end %>
+        
+        <%= plan.title %>
+        <%= plan.status %>
+    </div>
+    <% end %>
+</div>
