@@ -29,15 +29,19 @@ class Public::FriendsController < ApplicationController
   end
 
   def edit
-
+    @friend = Friend.find(params[:id])
   end
 
   def update
-
+    friend = Friend.find(params[:id])
+    friend.update(friend_params)
+    redirect_to friend_path(friend.id)
   end
 
   def destroy
-
+    friend = Friend.find(params[:id])
+    friend.destroy
+    redirect_to friends_path
   end
 
   private

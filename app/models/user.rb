@@ -8,4 +8,5 @@ class User < ApplicationRecord
 
   has_many :genres, dependent: :destroy
   has_many :friends, dependent: :destroy
+  has_many :plans, dependent: :destroy
 end

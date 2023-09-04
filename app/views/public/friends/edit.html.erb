@@ -1,0 +1,36 @@
+<h2>フレンド編集</h2>
+
+<%= link_to '削除', friend_path(@friend.id), method: :delete %>
+<%= form_with model: @friend, url: friend_path, method: :patch do |f| %>
+
+<%= f.file_field :image %>
+
+<%= f.label :氏名 %>
+<%= f.text_field :last_name, placeholder: "名字" %>
+<%= f.text_field :first_name, placeholder: "名前" %>
+
+<%= f.label :フリガナ %>
+<%= f.text_field :last_name_kana, placeholder: "ミョウジ" %>
+<%= f.text_field :first_name_kana, placeholder: "ナマエ" %>
+
+<%= f.label :ニックネーム %>
+<%= f.text_field :nickname, placeholder: "太朗ちゃん" %>
+
+<%= f.label :性別 %>
+<%= f.select :gender, Friend.genders.keys.map {|k| [k, k]}, include_blank: "--選択して下さい--"  %>
+
+
+<%= f.label :誕生日 %>
+<%#= f.date_select :birthday, { use_month_numbers: true, use_two_digit_numbers: true, discard_year: true } %>
+<%= select_month(nil, { use_month_numbers: true, prefix: :user, field_name: 'birthday_month' }) %> 月
+<%= select_day(nil, { use_two_digit_numbers: true, prefix: :user, field_name: 'birthday_day' }) %> 日
+
+<%= f.label :趣味　%>
+<%= f.text_field :hobby, placeholder: "バスケ、お酒等" %>
+
+<%= f.label :カテゴリ %>
+<%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "--選択して下さい--" %>
+
+<%= f.submit "編集内容を保存" %>
+
+<% end %>
