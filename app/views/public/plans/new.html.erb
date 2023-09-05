@@ -1,6 +1,10 @@
 <h2>スケジュールを立てる</h2>
-
+<%= button_to '追加', new_plan_path, method: :post %>
 <% @friends.each do |frined| %>
- <%= frined.nickname %>
- <%= frined.user.last_name %>
+  <% if @friend.image.attached? %>
+    <%= image_tag @friend.image, size: "50x50" %>
+  <% else %>
+    <%= image_tag 'no_image', size:"50x50" %>
+  <% end %>
+  <%= frined.nickname %>
 <% end %>
