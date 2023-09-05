@@ -1,5 +1,6 @@
 <h2>スケジュールを立てる</h2>
 
 <% @friends.each do |frined| %>
- 
+ <%= frined.nickname %>
+ <%= frined.user.last_name %>
 <% end %>

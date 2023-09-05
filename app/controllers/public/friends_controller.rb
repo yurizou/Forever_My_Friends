@@ -11,8 +11,9 @@ class Public::FriendsController < ApplicationController
   def create
     @friend = Friend.new(friend_params)
     @friend.user_id = current_user.id
-    @friend.save!
+    @friend.save
     redirect_to friend_path(@friend)
+    
 
 
     #if @friend.save

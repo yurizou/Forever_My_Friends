@@ -35,7 +35,11 @@
 
   <tr>
     <th>誕生日</th>
-    <th><%= @friend.birthday %></th>
+    <th>
+      <% if @friend.birthday.present? %>
+        <%= @friend.birthday.strftime('%m月%d日') %>
+      <% end %>
+    </th>
   </tr>
 
   <tr>

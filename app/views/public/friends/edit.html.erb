@@ -19,11 +19,8 @@
 <%= f.label :性別 %>
 <%= f.select :gender, Friend.genders.keys.map {|k| [k, k]}, include_blank: "--選択して下さい--"  %>
 
-
 <%= f.label :誕生日 %>
-<%#= f.date_select :birthday, { use_month_numbers: true, use_two_digit_numbers: true, discard_year: true } %>
-<%= select_month(nil, { use_month_numbers: true, prefix: :user, field_name: 'birthday_month' }) %> 月
-<%= select_day(nil, { use_two_digit_numbers: true, prefix: :user, field_name: 'birthday_day' }) %> 日
+<%= f.date_select :birthday, { use_month_numbers: true, use_two_digit_numbers: true, discard_year: true } %>
 
 <%= f.label :趣味　%>
 <%= f.text_field :hobby, placeholder: "バスケ、お酒等" %>
