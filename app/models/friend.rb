@@ -4,7 +4,8 @@ class Friend < ApplicationRecord
 
   belongs_to :genre
   belongs_to :user
-  has_many :friend_plans, dependent: :destroy
+  has_many :friend_plans, dependent: :destroy, through: :friend
+   has_many :plans, through: :friend_plans
 
   enum gender: {
       女性: 1,

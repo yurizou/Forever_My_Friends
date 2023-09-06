@@ -1,5 +1,5 @@
 class Public::PlansController < ApplicationController
-  def indx
+  def index
     @plans = current_user.plans
     
   end

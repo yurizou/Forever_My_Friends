@@ -1,5 +1,6 @@
 class Plan < ApplicationRecord
   has_many :friend_plans, dependent: :destroy
+  has_many :friends, through: :friend_plans
   belongs_to :user
   
   # 検索方法分岐

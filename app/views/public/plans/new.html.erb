@@ -1,10 +1,16 @@
 <h2>スケジュールを立てる</h2>
 <%= button_to '追加', new_plan_path, method: :post %>
-<% @friends.each do |frined| %>
-  <% if @friend.image.attached? %>
-    <%= image_tag @friend.image, size: "50x50" %>
+<% @friends.each do |friend| %>
+  <% if friend.image.attached? %>
+    <%= image_tag friend.image, size: "50x50" %>
   <% else %>
     <%= image_tag 'no_image', size:"50x50" %>
   <% end %>
-  <%= frined.nickname %>
+  <%= friend.nickname %>
 <% end %>
+
+  <%= form_with model: @plan do |f| %>
+    <%= f.collection_check_boxes(:friend_ids, @friends.all, :id, :last_name) do |b| %>
+      <%= b.label { b.check_box + b.text } %>
+    <% end %>
+  <% end %>
