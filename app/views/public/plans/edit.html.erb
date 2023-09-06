@@ -1,1 +1,7 @@
 <h2>スケジュール編集</h2>
+
+<%= link_to "削除", plan_path(@plan.id), method: :delete %>
+
+<%= form_with model: @plan, url: plan_path, method: :patch do |f| %>
+
+<%= 
