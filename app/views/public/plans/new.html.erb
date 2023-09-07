@@ -10,7 +10,7 @@
 <% end %>
 
   <%= form_with model: @plan do |f| %>
-    <%= f.collection_check_boxes(:friend_ids, @friends.all, :id, :last_name) do |b| %>
+    <%= f.collection_check_boxes(:friend_id, @friends, :id, :last_name) do |b| %>
       <%= b.label { b.check_box + b.text } %>
     <% end %>
-  <% end %>
+<% end %>

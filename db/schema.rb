@@ -83,7 +83,6 @@ ActiveRecord::Schema.define(version: 2023_09_02_070316) do
   end
 
   create_table "plans", force: :cascade do |t|
-    t.integer "friend_id", null: false
     t.integer "user_id", null: false
     t.string "title", null: false
     t.datetime "plan_date", null: false
