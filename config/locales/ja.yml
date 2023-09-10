@@ -1,4 +1,12 @@
 ja:
+  enums: 
+    plan: # モデル名
+      status: # カラム名
+        ready:  "準備中" # enumの値
+        replan: "延期"
+        executed: "実行済"
+        cancel: "キャンセル"
+        sudden_cancel: "ドタキャン"
   date:
     formats:
       default: "%Y/%m/%d"
@@ -23,3 +31,5 @@ ja:
       long: "%Y年%m月%d日(%a) %H時%M分%S秒 %Z"
     am: "午前"
     pm: "午後"
+    
+    

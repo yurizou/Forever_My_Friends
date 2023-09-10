@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   devise_for :admins, skip: [:registrations, :passwords]  ,controllers: {
     sessions: "admin/sessions"
   }
+  
+  #get 'maps/index'
+  #root to: 'maps#index'
+  #resources :maps, only: [:index]
 
   devise_for :users,skip: [:passwords], controllers: {
     registrations: "public/registrations",

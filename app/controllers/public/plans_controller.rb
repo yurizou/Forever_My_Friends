@@ -17,21 +17,28 @@ class Public::PlansController < ApplicationController
   end
   
   def show
-    
+    @plan = Plan.find(params[:id])
   end
   
   def edit
-    
+    @plan = Plan.find(params[:id])
   end
   
   def update
-    
+    plan = Plan.find(params[:id])
+    plan.update(plan_params)
+    redirect_to plans_path
   end
   
+  def destroy
+    plan = Plan.find(params[:id])
+    plan.destroy
+    redirect_to plans_path
+  end
   
   private
   
-  def plans_params
+  def plan_params
      params.require(:plan).permit(:user_id, :title, :plan_date, :place, :memo, :status)
   end
 end
