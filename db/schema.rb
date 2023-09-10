@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 2023_09_02_070316) do
     t.string "title", null: false
     t.datetime "plan_date", null: false
     t.string "place", null: false
+    t.string "memo"
     t.integer "status", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

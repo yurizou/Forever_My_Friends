@@ -14,3 +14,26 @@
       <%= b.label { b.check_box + b.text } %>
     <% end %>
 <% end %>
+
+<%= form_with model: @plan, url: plans_path do |f| %>
+  <%= f.label :タイトル %>
+  <%= f.text_field :title %>
+  
+  <%= %>
+  <%= %>
+  
+  <%= f.label :場所 %>
+  <%= f.text_field :place %>
+  
+  <%#マップ機能を実装させたい。%>
+  
+  <%= f.label :メモ %>
+  <%= f.text_field :memo %>
+  
+  <%= f.label :ステータス %>
+  <%#=ステータス機能を実装 %>
+  
+  <%= f.submit "保存" %>
+  
+  <% end %>
+  
