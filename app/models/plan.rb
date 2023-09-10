@@ -3,6 +3,10 @@ class Plan < ApplicationRecord
   has_many :friends, through: :friend_plans
   belongs_to :user
   
+  enum plan_status: {
+     "準備中":0, "延期":1, "実行済":2, "キャンセル":3, "ドタキャン":4
+  }
+  
   # 検索方法分岐
   # def self.looks(search, word)
   #   if search == "perfect_match"

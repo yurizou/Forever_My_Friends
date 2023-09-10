@@ -19,8 +19,8 @@
   <%= f.label :タイトル %>
   <%= f.text_field :title %>
   
-  <%= %>
-  <%= %>
+  <%=f.label :日程 %>
+  <%= form.datetime_field :sample_at %>
   
   <%= f.label :場所 %>
   <%= f.text_field :place %>
@@ -31,7 +31,7 @@
   <%= f.text_field :memo %>
   
   <%= f.label :ステータス %>
-  <%#=ステータス機能を実装 %>
+  <%= f.select :status, Plan.statuses.keys.map {|k| [I18n.t("enums.plan.status.#{k}"), k]}  %>
   
   <%= f.submit "保存" %>
   
