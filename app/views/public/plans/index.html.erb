@@ -9,11 +9,15 @@
         <div>
             <%= plan.plan_date.strftime("XY/Xm/Xd") %>
         </div>
+        <div>
         <% if @friend.image.attached? %>
           <%= image_tag @friend.image, size: "50x50" %>
           <% else %>
           <%= image_tag 'no_image', size:"50x50" %>
         <% end %>
+        
+        <%= @friend.nickname %>
+        </div>
         
         <%= plan.title %>
         <%= plan.status %>

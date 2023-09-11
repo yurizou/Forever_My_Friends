@@ -11,16 +11,8 @@
 
     <dt>場所</dt>
     <dd><%= @plan.place %></dd>
-
-    <dt>メモ</dt>
-    <dd><%= @plan.memo %></dd>
-
-    <dt>ステータス</dt>
-    <dd> <%= @plan.status_i18n %></dd>
-  </dl>
-
-
-  <div id='map'></div>
+    
+    <div id='map'></div>
 
   <style>
     #map {
@@ -48,3 +40,14 @@
   </script>
 
   <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap" async defer></script>
+
+
+    <dt>メモ</dt>
+    <dd><%= @plan.memo %></dd>
+
+    <dt>ステータス</dt>
+    <dd> <%= @plan.status_i18n %></dd>
+  </dl>
+
+
+  

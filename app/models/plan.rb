@@ -1,4 +1,6 @@
 class Plan < ApplicationRecord
+  has_one_attached :image
+  
   has_many :friend_plans, dependent: :destroy
   has_many :friends, through: :friend_plans
   belongs_to :user
