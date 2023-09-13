@@ -7,18 +7,8 @@
     <%= link_to plan_path(plan) do %>
     <div>
         <div>
-            <%= plan.plan_date.strftime("XY/Xm/Xd") %>
+            <%= plan.plan_date.strftime("%Y年%m月%d日") %>
         </div>
-        <div>
-        <% if @friend.image.attached? %>
-          <%= image_tag @friend.image, size: "50x50" %>
-          <% else %>
-          <%= image_tag 'no_image', size:"50x50" %>
-        <% end %>
-        
-        <%= @friend.nickname %>
-        </div>
-        
         <%= plan.title %>
         <%= plan.status %>
     </div>

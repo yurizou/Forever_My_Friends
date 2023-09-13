@@ -1,7 +1,7 @@
 class Public::PlansController < ApplicationController
   def index
     @plans = current_user.plans
-    @friend = current_user.friends
+    @friends = current_user.friends
   end
 
   def new

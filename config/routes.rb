@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    get '/' => 'homes#top'
     resources :topics
   end
 
