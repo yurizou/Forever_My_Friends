@@ -30,64 +30,50 @@
               <% end %>
             </div>
           </div>
-      </div>
-       <% elsif admin_signed_in? %>
-    
-    
-       
-  </div>
-        
-      
-       <%= link_to "ロゴ", root_path %>
-       <% else %>
-       <%= link_to "ロゴ", root_path %>
-       <% end %>
-    </header>
-     <%= yield %>
-    <footer>
+     　　 </div>
+     　　    <% elsif admin_signed_in? %>
+         <div class="row">
+           <div class="col-md-2">
+            <%= link_to "ロゴ", root_path, class: "text-danger" %>
+           </div>
+         </div>
+            <% else %>
+         <div class="row">
+           <div class="col-md-2">
+             <%= link_to "ロゴ", root_path, class: "text-danger" %>
+           </div>
+          </div>
+            <% end %>
+    　</div>
+     </header>
+           <%= yield %>
+     <footer>
       <% if user_signed_in? %>
-        <li>
-          <%= link_to "My情報", users_my_page_path %>
-        </li>
-        <li>
-           <%= link_to "フレンドリスト", friends_path %>
-        </li>
-        <!--<li>-->
-           <!--<%#= link_to "カレンダー", **** %>-->
-        <!--</li>-->
-        <li>
-          <%= link_to "友人カテゴリ", genres_path %>
-        </li>
-        <li>
-           <%= link_to "スケジュール",  plans_path %>
-        </li>
-        <li>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-        </li>
-
-    　<% elsif admin_signed_in? %>
-    　<li>
-    　   <%= link_to "トピック管理", admin_topics_path  %>
-    　</li>
-
-    　<li>
-    　   <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
-    　</li>
-
-      <% else %>
-        <li>
-          <%= link_to "新規登録", new_user_registration_path %>
-        </li>
-        <li>
-          <%= link_to "ログイン", new_user_session_path %>
-        </li>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-1"></div>
+          <div class="col-md-2"><%= link_to "My情報", users_my_page_path, class="rounded-circle" %></divi>
+          <div class="col-md-2"><%= link_to "フレンドリスト", friends_path, class="rounded-circle" %></div>
+          <div class="col-md-2"><%= link_to "友人カテゴリ", genres_path, class="rounded-circle" %></div>
+          <div class="col-md-2"><%= link_to "スケジュール",  plans_path, class="rounded-circle" %></div>
+          <div class="col-md-2"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class="rounded-circle" %></div>
+          <div class="col-md-1"></div>
+        </div>
+      <% elsif admin_signed_in? %>
+        <div class="row">
+          <div class="col-md-7"></div>
+          <div class="col-md-2"><%= link_to "トピック管理", admin_topics_path, class="rounded-circle" %></div>
+          <div class="col-md-2"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class="rounded-circle" %></div>
+          <div class="col-md-1"></div>
+        </div>
+      <% else %>   
+        <div class="row">
+          <div class=col-md-7></div>
+          <div class="col-md-2"><%= link_to "新規登録", new_user_registration_path, class="rounded-circle" %></div>
+          <div class="col-md-2"><%= link_to "ログイン", new_user_session_path, class="rounded-circle" %></div>
+        </div>
       <% end %>
-
-
-
-
-
-    </footer>
-
+      </div>
+   </footer>
   </body>
 </html>
