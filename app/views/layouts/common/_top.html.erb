@@ -1,7 +1,8 @@
 <h1>Forever My Friends</h1>
 
 <h2>〜〜大切な人との素敵な思い出を刻もう〜〜</h2>
-
-<%= topic.title %>
-<%= topic.article %>
+<% @topics.each do |topic| %>
+    <%= topic.title %>
+    <%= topic.article %>
+<% end %>
 

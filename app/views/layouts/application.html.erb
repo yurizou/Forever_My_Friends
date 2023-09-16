@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
+
     <script src="https://kit.fontawesome.com/xxxxxxxxxx.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -52,25 +52,25 @@
       <div class="container">
         <div class="row">
           <div class="col-md-1"></div>
-          <div class="col-md-2"><%= link_to "My情報", users_my_page_path, class="rounded-circle" %></divi>
-          <div class="col-md-2"><%= link_to "フレンドリスト", friends_path, class="rounded-circle" %></div>
-          <div class="col-md-2"><%= link_to "友人カテゴリ", genres_path, class="rounded-circle" %></div>
-          <div class="col-md-2"><%= link_to "スケジュール",  plans_path, class="rounded-circle" %></div>
-          <div class="col-md-2"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class="rounded-circle" %></div>
+          <div class="col-md-2"><%= link_to "My情報", users_my_page_path, class: "rounded-circle" %></divi>
+          <div class="col-md-2"><%= link_to "フレンドリスト", friends_path, class: "rounded-circle" %></div>
+          <div class="col-md-2"><%= link_to "友人カテゴリ", genres_path, class: "rounded-circle" %></div>
+          <div class="col-md-2"><%= link_to "スケジュール",  plans_path, class: "rounded-circle" %></div>
+          <div class="col-md-2"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "rounded-circle" %></div>
           <div class="col-md-1"></div>
         </div>
       <% elsif admin_signed_in? %>
         <div class="row">
           <div class="col-md-7"></div>
-          <div class="col-md-2"><%= link_to "トピック管理", admin_topics_path, class="rounded-circle" %></div>
-          <div class="col-md-2"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class="rounded-circle" %></div>
+          <div class="col-md-2"><%= link_to "トピック管理", admin_topics_path, class: "rounded-circle" %></div>
+          <div class="col-md-2"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "rounded-circle" %></div>
           <div class="col-md-1"></div>
         </div>
-      <% else %>   
+      <% else %>
         <div class="row">
           <div class=col-md-7></div>
-          <div class="col-md-2"><%= link_to "新規登録", new_user_registration_path, class="rounded-circle" %></div>
-          <div class="col-md-2"><%= link_to "ログイン", new_user_session_path, class="rounded-circle" %></div>
+          <div class="col-md-2"><%= link_to "新規登録", new_user_registration_path, class: "rounded-circle" %></div>
+          <div class="col-md-2"><%= link_to "ログイン", new_user_session_path, class: "rounded-circle" %></div>
         </div>
       <% end %>
       </div>

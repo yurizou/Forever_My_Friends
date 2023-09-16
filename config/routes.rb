@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     get 'users/confirm' => 'users#confirm'
     patch 'users/info' => 'users#update'
     patch 'users/quit' => 'users#quit'
+    get 'plans/:id/get' => 'plans#plan_get'
   end
 
   namespace :admin do

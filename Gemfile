@@ -64,3 +64,5 @@ gem 'dotenv-rails'
 
 
 gem "geocoder"
+
+gem "whenever"

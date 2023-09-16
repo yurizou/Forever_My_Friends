@@ -12,6 +12,7 @@ class Public::UsersController < ApplicationController
     @user.update(user_params)
     redirect_to users_my_page_path
   end
+ 
 
   def confirm
 

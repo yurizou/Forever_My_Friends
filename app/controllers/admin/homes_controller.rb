@@ -1,5 +1,6 @@
 class Admin::HomesController < ApplicationController
   def top
-    @topic = Topic(created_at: :desc).limit(5)
+    @topics = Topic.order(created_at: :desc).limit(5)
+    pp "@topic-------------------------------#{@topic.inspect}"
   end
 end

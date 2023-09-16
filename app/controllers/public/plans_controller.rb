@@ -24,6 +24,12 @@ class Public::PlansController < ApplicationController
     @plan = Plan.find(params[:id])
   end
 
+  # Ajax用
+  def plan_get
+    plan = Plan.find(params[:id])
+    render json: plan
+  end
+
   def update
     plan = Plan.find(params[:id])
     plan.update(plan_params)
