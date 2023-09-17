@@ -31,6 +31,6 @@ set :environment, rails_env
 set :output, "#{Rails.root}/log/cron.log"
 
 #定期実行したい処理を記入
-every :hour do
-  rake 'article_state:update_article_state'
+every 1.day, at: '9:00 am' do
+  rake 'task_sample:friend'
 end
