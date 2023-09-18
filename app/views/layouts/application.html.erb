@@ -51,26 +51,26 @@
       <% if user_signed_in? %>
       <div class="container">
         <div class="row">
-          <div class="col-md-1"></div>
-          <div class="col-md-2"><%= link_to "My情報", users_my_page_path, class: "rounded-circle" %></divi>
-          <div class="col-md-2"><%= link_to "フレンドリスト", friends_path, class: "rounded-circle" %></div>
-          <div class="col-md-2"><%= link_to "友人カテゴリ", genres_path, class: "rounded-circle" %></div>
-          <div class="col-md-2"><%= link_to "スケジュール",  plans_path, class: "rounded-circle" %></div>
-          <div class="col-md-2"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "rounded-circle" %></div>
-          <div class="col-md-1"></div>
+          <div class="col-1"></div>
+          <div class="col-2"><%= link_to "My情報", users_my_page_path %></divi>
+          <div class="col-2"><%= link_to "フレンドリスト", friends_path %></div>
+          <div class="col-2"><%= link_to "友人カテゴリ", genres_path %></div>
+          <div class="col-2"><%= link_to "スケジュール",  plans_path %></div>
+          <div class="col-2"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></div>
+          <div class="col-1"></div>
         </div>
       <% elsif admin_signed_in? %>
         <div class="row">
           <div class="col-md-7"></div>
-          <div class="col-md-2"><%= link_to "トピック管理", admin_topics_path, class: "rounded-circle" %></div>
-          <div class="col-md-2"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "rounded-circle" %></div>
+          <div class="col-md-2"><%= link_to "トピック管理", admin_topics_path %></div>
+          <div class="col-md-2"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></div>
           <div class="col-md-1"></div>
         </div>
       <% else %>
         <div class="row">
           <div class=col-md-7></div>
-          <div class="col-md-2"><%= link_to "新規登録", new_user_registration_path, class: "rounded-circle" %></div>
-          <div class="col-md-2"><%= link_to "ログイン", new_user_session_path, class: "rounded-circle" %></div>
+          <div class="col-md-2"><%= link_to "新規登録", new_user_registration_path %></div>
+          <div class="col-md-2"><%= link_to "ログイン", new_user_session_path %></div>
         </div>
       <% end %>
       </div>

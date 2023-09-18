@@ -4,15 +4,23 @@ Rails.application.routes.draw do
   devise_for :admins, skip: [:registrations, :passwords]  ,controllers: {
     sessions: "admin/sessions"
   }
-  
+
   #get 'maps/index'
   #root to: 'maps#index'
   #resources :maps, only: [:index]
 
-  devise_for :users,skip: [:passwords], controllers: {
-    registrations: "public/registrations",
+#  devise_for :users,skip: [:passwords], controllers: {
+#    registrations: "public/registrations",
+#    sessions: "public/sessions"
+#  }
+  devise_for :users, skip: [:registrations, :passwords], controllers: {
     sessions: "public/sessions"
   }
+
+  devise_scope :user do
+    get '/users/sign_up' => 'public/registrations#new', as: 'new_user_registration'
+    post '/users' => 'public/registrations#create', as: 'user_registration'
+  end
 
   scope module: :public do
     resources :genres, only: [:index, :create, :edit, :update]
