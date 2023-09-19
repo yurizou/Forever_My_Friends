@@ -13,6 +13,9 @@ class Public::PlansController < ApplicationController
     @plan = Plan.new(plan_params)
     @plan.user_id = current_user.id
     @plan.save
+    params[:plan][:friend_ids].each do |friend_id| 
+    FriendPlan.create(friend_id:friend_id, plan_id:@plan.id) if friend_id.present?
+  end
     redirect_to plan_path(@plan)
   end
 
@@ -22,6 +25,7 @@ class Public::PlansController < ApplicationController
 
   def edit
     @plan = Plan.find(params[:id])
+    @friends = current_user.friends
   end
 
   # Ajax用
@@ -32,6 +36,10 @@ class Public::PlansController < ApplicationController
 
   def update
     plan = Plan.find(params[:id])
+    plan.friend_plans.destroy_all
+    params[:plan][:friend_ids].each do |friend_id| 
+    FriendPlan.create(friend_id:friend_id, plan_id:plan.id) if friend_id.present?
+    end
     plan.update(plan_params)
     redirect_to plans_path
   end
@@ -47,4 +55,5 @@ class Public::PlansController < ApplicationController
   def plan_params
      params.require(:plan).permit(:image, :user_id, :title, :plan_date, :place, :memo, :status)
   end
+  
 end

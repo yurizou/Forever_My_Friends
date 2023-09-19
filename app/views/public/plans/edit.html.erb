@@ -3,6 +3,17 @@
 <%= link_to "削除", plan_path(@plan.id), method: :delete %>
 
 <%= form_with model: @plan, url: plan_path, method: :patch do |f| %>
+<%= f.collection_check_boxes(:friend_ids, @friends, :id, :last_name) do |b| %>
+  <%= b.label { b.check_box } %>
+
+     <% if b.object.image.attached? %>
+      <%= image_tag b.object.image, size: "50x50" %>
+     <% else %>
+      <%= image_tag 'no_image', size:"50x50" %>
+     <% end %>
+      <%= b.object.nickname %>
+     <% end %>
+
   <%= f.label :タイトル %>
   <%= f.text_field :title %>
 
