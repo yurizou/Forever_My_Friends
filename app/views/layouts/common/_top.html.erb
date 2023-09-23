@@ -1,8 +1,21 @@
-<h1>Forever My Friends</h1>
+<div class="container">
+    <div class="row", "p-3 mb-2 bg-secondary text-white">
+      <div class="col-2"></div>
+      <h1 class="col-8">Forever My Friends</h1>
+    </div>
+    
+    <div class="row">
+        <div class="col-1"></div>
+        <h2 class="col-8">〜〜大切な人との素敵な思い出を刻もう〜〜</h2>
+    </div>
+    
+    
+</div>
 
-<h2>〜〜大切な人との素敵な思い出を刻もう〜〜</h2>
 <% @topics.each do |topic| %>
     <%= topic.title %>
     <%= topic.article %>
 <% end %>
+
+
 
