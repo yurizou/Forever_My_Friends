@@ -1,16 +1,5 @@
 <h2>My情報</h2>
 
-<% @noticies.each do |notice| %>
-  <% friend = notice.friend.nickname %>
-  <% if notice.birthday? %>
-    今日は<%= friend %>さんの誕生日です！
-  <% elsif notice.meet_friend? %>
-    今日は<%= friend %>さんと会う日です！
-  <% elsif notice.neglect_friend? %>
-    <%= friend %>さんと連絡をとっていませんか？
-  <% end %>
-<% end %>
-
 <%= link_to "編集", users_edit_path %>
 
 <table>

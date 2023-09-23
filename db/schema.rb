@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 2023_09_17_074524) do
   end
 
   create_table "notices", force: :cascade do |t|
+    t.integer "user_id", null: false
     t.integer "friend_id", null: false
     t.integer "plan_id", null: false
     t.datetime "created_at", precision: 6, null: false

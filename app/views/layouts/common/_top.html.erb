@@ -1,16 +1,27 @@
 <div class="container">
-    <div class="row", "p-3 mb-2 bg-secondary text-white">
-      <div class="col-2"></div>
-      <h1 class="col-8">Forever My Friends</h1>
+    <div class="row justify-content-center">
+      <h1 class="text-center">Forever My Friends<br><span>〜〜大切な人との素敵な思い出を刻もう〜〜</span></h1>
     </div>
-    
-    <div class="row">
-        <div class="col-1"></div>
-        <h2 class="col-8">〜〜大切な人との素敵な思い出を刻もう〜〜</h2>
-    </div>
-    
-    
 </div>
+
+<% @notices.each do |notice| %>
+  <% friend = notice.friend.nickname %>
+  <% if notice.birthday? %>
+    今日は<%= friend %>さんの誕生日です！
+  <% end %>
+<% end %>
+<% @notices.each do |notice| %>
+   <% friend = notice.friend.nickname %>
+  <% if notice.meet_friend?(current_user) %>
+    今日は<%= friend %>さんと会う日です！
+  <% end %>
+<% end %>
+<% @notices.each do |notice| %>
+  <% friend = notice.friend.nickname %>
+  <% if notice.neglect_friend?(current_user, notice.friend.id) %>
+    <%= friend %>さんと連絡をとっていませんか？
+  <% end %>
+<% end %>
 
 <% @topics.each do |topic| %>
     <%= topic.title %>
