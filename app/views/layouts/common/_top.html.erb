@@ -3,31 +3,55 @@
       <h1 class="text-center">Forever My Friends<br><span>〜〜大切な人との素敵な思い出を刻もう〜〜</span></h1>
     </div>
 </div>
+<style>
 
+</style>
+<div class="container mb-5">
+  <div class="row justify-content-center">
+    <p class="mt-5 col--3">通知</p>
+    <p class="mt-5 col-9">
+      <% @notices.each do |notice| %>
+        <% friend = notice.friend.nickname %>
+          <% if notice.birthday? %>
+            今日は<%= friend %>さんの誕生日です！
+          <% end %>
+        <% end %>
+      <% @notices.each do |notice| %>
+         <% friend = notice.friend.nickname %>
+        <% if notice.meet_friend?(current_user) %>
+          今日は<%= friend %>さんと会う日です！
+        <% end %>
+      <% end %>
+      <% @notices.each do |notice| %>
+        <% friend = notice.friend.nickname %>
+        <% if notice.neglect_friend?(current_user, notice.friend.id) %>
+          <%= friend %>さんと連絡をとっていませんか？
+        <% end %>
+      <% end %>
+    </p>
+    
+  </div>
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>管理人からお知らせ</th>
+          <th>詳細</th>
+        </tr>
+         <% @topics.each do |topic| %>
+        <tr>
+           <th><%= topic.title %></th>
+           <th><%= topic.article %></th>
+        </tr>
+        <% end %>
+      </tbody>
+    </table> 
+   
+         
+         
+      
+  
+</div>
 
-<% @notices.each do |notice| %>
-  <% friend = notice.friend.nickname %>
-  <% if notice.birthday? %>
-    今日は<%= friend %>さんの誕生日です！
-  <% end %>
-<% end %>
-<% @notices.each do |notice| %>
-   <% friend = notice.friend.nickname %>
-  <% if notice.meet_friend?(current_user) %>
-    今日は<%= friend %>さんと会う日です！
-  <% end %>
-<% end %>
-<% @notices.each do |notice| %>
-  <% friend = notice.friend.nickname %>
-  <% if notice.neglect_friend?(current_user, notice.friend.id) %>
-    <%= friend %>さんと連絡をとっていませんか？
-  <% end %>
-<% end %>
-
-<% @topics.each do |topic| %>
-    <%= topic.title %>
-    <%= topic.article %>
-<% end %>
 
 
 
