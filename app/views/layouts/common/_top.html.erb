@@ -10,24 +10,24 @@
   <div class="row justify-content-center">
     <p class="mt-5 col--3">通知</p>
     <p class="mt-5 col-9">
-      <% @notices.each do |notice| %>
-        <% friend = notice.friend.nickname %>
-          <% if notice.birthday? %>
-            今日は<%= friend %>さんの誕生日です！
-          <% end %>
-        <% end %>
-      <% @notices.each do |notice| %>
-         <% friend = notice.friend.nickname %>
-        <% if notice.meet_friend?(current_user) %>
-          今日は<%= friend %>さんと会う日です！
-        <% end %>
-      <% end %>
-      <% @notices.each do |notice| %>
-        <% friend = notice.friend.nickname %>
-        <% if notice.neglect_friend?(current_user, notice.friend.id) %>
-          <%= friend %>さんと連絡をとっていませんか？
-        <% end %>
-      <% end %>
+      <%# @notices.each do |notice| %>
+        <%# friend = notice.friend.nickname %>
+          <%# if notice.birthday? %>
+            今日は<%#= friend %>さんの誕生日です！
+          <%# end %>
+        <%# end %>
+      <%# @notices.each do |notice| %>
+         <%# friend = notice.friend.nickname %>
+        <%# if notice.meet_friend?(current_user) %>
+          今日は<%#= friend %>さんと会う日です！
+        <%# end %>
+      <%# end %>
+      <%# @notices.each do |notice| %>
+        <%# friend = notice.friend.nickname %>
+        <%# if notice.neglect_friend?(current_user, notice.friend.id) %>
+          <%#= friend %>さんと連絡をとっていませんか？
+        <%# end %>
+      <%# end %>
     </p>
     
   </div>
