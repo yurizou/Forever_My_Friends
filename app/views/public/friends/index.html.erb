@@ -1,24 +1,40 @@
-<h2>フレンド一覧</h2>
-
-<div>
-  <!--フレンド数を表示-->
-  <p>フレンド<%= @friends.count %>人</p>
-  <!--名前検索機能を実装-->
-  <%= link_to "+", new_friend_path %>
-</div>
-
-<div>
-  <% @friends.each do |friend| %>
-  <%= link_to (friend_path(friend.id)) do %>
-  <div>
-   <% if friend.image.attached? %>
-    <%= image_tag friend.image, size: "50x50" %>
-   <% else %>
-    <%= image_tag 'no_image', size:"50x50" %>
-   <% end %>
-     <%= friend.nickname %>
-  <% end %>
+<div class="container">
+  <div class="row my-4">
+    <h2 class="col-4 mb-5">フレンド一覧</h2>
+    <p class="col-3">フレンド<%= @friends.count %>人
+    <span>
+      <%= link_to new_friend_path do %>
+        <i class="fa-solid fa-user-plus"></i>
+      <% end %>
+    </span>
+    <style>
+      /*色を変えたい.i { color: $green; } */
+    </style>
+    </p>
   </div>
-  <% end %>
+  
+  <div class="row my-3 justify-content-center">
+    <% @friends.each do |friend| %>
+    <div class="col-5">
+       <%= link_to (friend_path(friend.id)) do %>
+       <% if friend.image.attached? %>
+       <%= image_tag friend.image, size: "50x50" %>
+       <% else %>
+       <%= image_tag 'no_image', size:"50x50" %>
+       <% end %>
+       <%= friend.nickname %>
+       <% end %>
+       <% end %>
+    </div>
+  </div>
+  
+ 
+  </div>
+  
 
 </div>
+  
+  
+  
+</div>
+
