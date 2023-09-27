@@ -1,15 +1,28 @@
-<h2>フレンド詳細</h2>
-
-<%= link_to "編集", edit_friend_path %>
+<div class="container">
+  <div class="row my-4">
+    <h2 class="col-4 mb-5">フレンド詳細</h2>
+    <div class="col-2 mb-5"><%= link_to "編集", edit_friend_path, class: "btn btn-success" %></div>
+  </div>
+  <div class="row my-3">
+    <div class="col-3">
+      <% if @friend.image.attached? %>
+      <%= image_tag @friend.image, size: "100x100" %>
+      <% else %>
+      <%= image_tag 'no_image', size:"100x100" %>
+      <% end %>
+    </div>
+  </div>
+  
+  <div class="row my-3">
+    <div class="col-3"></div>
+    
+  </div>
+</div>
  <!--<p>会った回数<%#= @status.count %>回</p>-->
 <table>
   <tr>
     <th>
-      <% if @friend.image.attached? %>
-      <%= image_tag @friend.image, size: "50x50" %>
-      <% else %>
-      <%= image_tag 'no_image', size:"50x50" %>
-      <% end %>
+      
     </th>
   </tr>
 
