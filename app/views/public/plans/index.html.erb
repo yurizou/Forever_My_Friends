@@ -1,17 +1,21 @@
-<h2>スケジュール一覧</h2>
-
-<%= link_to "+", new_plan_path %>
-
-<div>
-    <% @plans.each do |plan| %>
+<div class="container">
+  <div class="row my-4">
+    <h2 class="col-3 mb-5 offset-3">スケジュール一覧</h2>
+    <p class="col-2">
+        <%= link_to new_plan_path do %>
+           <i class="fa-solid fa-people-pulling"></i>
+           予定を立てる
+        <% end %>
+    </p>
+  </div>
+  
+   <% @plans.each do |plan| %>
     <%= link_to plan_path(plan) do %>
-    <div>
-        <div>
-            <%= plan.plan_date.strftime("%Y年%m月%d日") %>
-        </div>
-        <%= plan.title %>
-        <%= plan.status %>
+    <div class="row my-3">
+        <div class="col-2 offset-3 my-2"><%= plan.plan_date.strftime("%Y年%m月%d日") %></div>
+        <div class="col-3 my-2"><%= plan.title %></div>
+        <div class="col-3 my-2"><%= plan.status %></div>
     </div>
     <% end %>
-  <% end %>
+   <% end %>
 </div>

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row my-4">
-    <h2 class="col-4 mb-5 offset-3">フレンド一覧</h2>
-    <p class="col-3">フレンド<%= @friends.count %>人
+    <h2 class="col-3 mb-5 offset--3">フレンド一覧</h2>
+    <p class="col-2">フレンド<%= @friends.count %>人
     <span>
       <%= link_to new_friend_path do %>
         <i class="fa-solid fa-user-plus"></i>
@@ -12,25 +12,23 @@
     </style>
     </p>
   </div>
-  
-  <div class="row my-3 justify-content-center">
-    <% @friends.each do |friend| %>
+   <% @friends.each do |friend| %>
       <%= link_to (friend_path(friend.id)) do %>
-      <div class="col-3 my-2">
+  <div class="row my-3 justify-content-center">
+   
+      <div class="col-2 offset-2 my-2">
          <% if friend.image.attached? %>
-         <%= image_tag friend.image, size: "50x50" %>
+         <%= image_tag friend.image, size: "60x60" %>
          <% else %>
-         <%= image_tag 'no_image', size:"50x50" %>
+         <%= image_tag 'no_image', size:"60x60" %>
          <% end %>
       </div>
       <div class="col-3 my-2">
          <%= friend.nickname %>
-         <% end %>
-         <% end %>
       </div>
-     </div>
-  
- 
+    </div>
+       <% end %>
+     <% end %>
   </div>
   
 
