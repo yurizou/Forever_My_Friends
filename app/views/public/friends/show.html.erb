@@ -1,64 +1,58 @@
 <div class="container">
-  <div class="row my-4">
-    <h2 class="col-4 mb-5">フレンド詳細</h2>
+  <div class="row my-5">
+    <h2 class="col-4 mb-5 offset-3">フレンド詳細</h2>
     <div class="col-2 mb-5"><%= link_to "編集", edit_friend_path, class: "btn btn-success" %></div>
   </div>
   <div class="row my-3">
-    <div class="col-3">
+    <div class="col-2 offset-3">
       <% if @friend.image.attached? %>
-      <%= image_tag @friend.image, size: "100x100" %>
+      <%= image_tag @friend.image, size: "150x150" %>
       <% else %>
-      <%= image_tag 'no_image', size:"100x100" %>
+      <%= image_tag 'no_image', size:"150x150" %>
       <% end %>
     </div>
-  </div>
-  
-  <div class="row my-3">
-    <div class="col-3"></div>
-    
+
+    <div class="col-5">
+      <table class="table">
+      <thead>
+        <tr>
+          <th>氏名</th>
+          <th><%= @friend.last_name + @friend.first_name %></th>
+        </tr>
+      
+        <tr>
+          <th>カナ</th>
+          <th><%= @friend.last_name_kana + @friend.first_name_kana %></th>
+        </tr>
+      
+        <tr>
+          <th>ニックネーム</th>
+          <th><%= @friend.nickname %></th>
+        </tr>
+      
+        <tr>
+          <th>性別</th>
+          <th><%= @friend.gender %></th>
+        </tr>
+      
+        <tr>
+          <th>誕生日</th>
+          <th>
+            <% if @friend.birthday.present? %>
+              <%= @friend.birthday.strftime('%m月%d日') %>
+            <% end %>
+          </th>
+        </tr>
+      
+        <tr>
+          <th>カテゴリ</th>
+          <th><%= @friend.genre.name %></th>
+        </tr>
+      
+      </thead>
+      </table>
+    </div>
+
   </div>
 </div>
  <!--<p>会った回数<%#= @status.count %>回</p>-->
-<table>
-  <tr>
-    <th>
-      
-    </th>
-  </tr>
-
-  <tr>
-    <th>氏名</th>
-    <th><%= @friend.last_name + @friend.first_name %></th>
-  </tr>
-
-  <tr>
-    <th>カナ</th>
-    <th><%= @friend.last_name_kana + @friend.first_name_kana %></th>
-  </tr>
-
-  <tr>
-    <th>ニックネーム</th>
-    <th><%= @friend.nickname %></th>
-  </tr>
-
-  <tr>
-    <th>性別</th>
-    <th><%= @friend.gender %></th>
-  </tr>
-
-  <tr>
-    <th>誕生日</th>
-    <th>
-      <% if @friend.birthday.present? %>
-        <%= @friend.birthday.strftime('%m月%d日') %>
-      <% end %>
-    </th>
-  </tr>
-
-  <tr>
-    <th>カテゴリ</th>
-    <th><%= @friend.genre.name %></th>
-  </tr>
-
-
-</table>

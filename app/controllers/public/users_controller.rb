@@ -12,7 +12,7 @@ class Public::UsersController < ApplicationController
     @user.update(user_params)
     redirect_to users_my_page_path
   end
- 
+
 
   def confirm
 
@@ -20,10 +20,10 @@ class Public::UsersController < ApplicationController
 
   def quit
     @user = current_user
-    @user.is.delete = true
+    @user.is_delete = true
     @user.save
     reset_session
-    redirect_to root_path
+    redirect_to new_user_registration_path
   end
 
   private

@@ -1,7 +1,6 @@
 class Public::GenresController < ApplicationController
   def index
-    
-    @genres = Genre.all
+    @genres = current_user.genres
     @genre = Genre.new
   end
 
