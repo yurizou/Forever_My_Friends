@@ -1,84 +1,96 @@
 <div class="container">
+  <div class="row my-4">
+    <h2 class="col-3 mb-5 offset-2">スケジュール詳細</h2>
+    <div class="col-2 mb-5"><%= link_to "編集", edit_plan_path, class: "btn btn-success" %></div>
+  </div>
   
-</div>
+  <div class="row my-3">
+    <div class="col-5  mb-5 offset-3">
+       <table class="table">
+        <thead>
+          <tr>
+            <th>タイトル</th>
+            <th><%= @plan.title %></th>
+          </tr>
+        
+          <tr>
+            <th>日程</th>
+            <th><%= l @plan.plan_date, format: :short %></th>
+          </tr>
+        
+          <tr>
+            <th>場所</th>
+            <th><%= @plan.place %></th>
+          </tr>
+           <tr>
+             <th>メモ</th>
+             <th><%= @plan.memo %></th>
+           </tr>
+          
+            <tr>
+              <th>ステータス</th>
+              <th><%= @plan.status_i18n %></th>
+            </tr>
+       
+        <div id='map'></div>
 
-<h2>スケジュール詳細</h2>
-
-<%= link_to "編集", edit_plan_path %>
-
-  <dl>
-    <dt>タイトル</dt>
-    <dd><%= @plan.title %></dd>
-
-    <dt>日程</dt>
-    <dd><%= l @plan.plan_date, format: :short %></dd>
-
-    <dt>場所</dt>
-    <dd><%= @plan.place %></dd>
-
-    <div id='map'></div>
-
-  <style>
-    #map {
-      height: 400px;
-      width: 400px;
-    }
-  </style>
-
-  <script>
-    let map
-
-    function initMap(){
-      geocoder = new google.maps.Geocoder()
-      var url = window.location.href; //URLを取得
-      var lastSegment = url.split('/').pop();
-      var number = parseInt(lastSegment);
-      $.ajax({
-          url: `/plans/${number}/get`,
-          type: 'GET',
-          success: function(data) {
-            // Ajaxリクエストが成功した場合の処理
-            console.log('Coordinates:', data);
-            geocoder.geocode({'address': data.place }, function(results, status) {
-            if (status == google.maps.GeocoderStatus.OK) {
-              var latitude = results[0].geometry.location.lat();
-              var longitude = results[0].geometry.location.lng();
-              console.log("緯度: " + latitude + ", 経度: " + longitude);
-              map = new google.maps.Map(document.getElementById('map'), {
-              center: {lat: latitude, lng: longitude},
-              zoom: 12,
-              });
-               marker = new google.maps.Marker({
-               position:  {lat: latitude, lng: longitude},
-               map: map
-            });
-
-            } else {
-              console.log("Geocode 失敗: " + status);
-               map = new google.maps.Map(document.getElementById('map'), {
-              center: {lat: 34.6937249, lng: 135.5022535},
-              zoom: 12,
-              });
+          <style>
+            #map {
+              height: 400px;
+              width: 400px;
             }
-          });
-          },
-          error: function(xhr, status, error) {
-            // Ajaxリクエストが失敗した場合の処理
-            console.error(error);
-          }
-    });
-    }
-
-  </script>
-
-  <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap" async defer></script>
-
-
-    <dt>メモ</dt>
-    <dd><%= @plan.memo %></dd>
-
-    <dt>ステータス</dt>
-    <dd> <%= @plan.status_i18n %></dd>
-  </dl>
-
-
+          </style>
+        
+          <script>
+            let map
+        
+            function initMap(){
+              geocoder = new google.maps.Geocoder()
+              var url = window.location.href; //URLを取得
+              var lastSegment = url.split('/').pop();
+              var number = parseInt(lastSegment);
+              $.ajax({
+                  url: `/plans/${number}/get`,
+                  type: 'GET',
+                  success: function(data) {
+                    // Ajaxリクエストが成功した場合の処理
+                    console.log('Coordinates:', data);
+                    geocoder.geocode({'address': data.place }, function(results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                      var latitude = results[0].geometry.location.lat();
+                      var longitude = results[0].geometry.location.lng();
+                      console.log("緯度: " + latitude + ", 経度: " + longitude);
+                      map = new google.maps.Map(document.getElementById('map'), {
+                      center: {lat: latitude, lng: longitude},
+                      zoom: 12,
+                      });
+                       marker = new google.maps.Marker({
+                       position:  {lat: latitude, lng: longitude},
+                       map: map
+                    });
+        
+                    } else {
+                      console.log("Geocode 失敗: " + status);
+                       map = new google.maps.Map(document.getElementById('map'), {
+                      center: {lat: 34.6937249, lng: 135.5022535},
+                      zoom: 12,
+                      });
+                    }
+                  });
+                  },
+                  error: function(xhr, status, error) {
+                    // Ajaxリクエストが失敗した場合の処理
+                    console.error(error);
+                  }
+            });
+            }
+        
+          </script>
+          <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap" async defer></script>
+          
+          
+           </thead>
+        </table>
+      </div>
+    </div>
+    
