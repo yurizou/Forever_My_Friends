@@ -1,4 +1,17 @@
 ja:
+  activecord:
+    models:
+      plan: "プラン"
+    attributes:
+      plan:
+        status: "ステータス"
+      plan/status:
+        ready:  "準備中"
+        replan: "延期"
+        executed: "実行済"
+        cancel: "キャンセル"
+        sudden_cancel: "ドタキャン"
+        
   enums: 
     plan: # モデル名
       status: # カラム名

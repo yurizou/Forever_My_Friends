@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  # devise_for :users
-  # devise_scope :user do
-  #   post 'users/guest_sign_in', to: 'users/sessions#new_guest'
-  # end
   
   root to: 'public/homes#top'
   get "search" => "searches#search"
@@ -23,6 +19,7 @@ Rails.application.routes.draw do
   }
 
   devise_scope :user do
+    post 'users/guest_sign_in' => 'public/sessions#guest_sign_in', as:'guest_sign_in'
     get '/users/sign_up' => 'public/registrations#new', as: 'new_user_registration'
     post '/users' => 'public/registrations#create', as: 'user_registration'
   end

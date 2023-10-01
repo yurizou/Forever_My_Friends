@@ -1,6 +1,7 @@
 class Public::PlansController < ApplicationController
   def index
     @plans = current_user.plans
+    @plans = Kaminari.paginate_array(@plans).page(params[:page]).per(5)
     @friends = current_user.friends
   end
 

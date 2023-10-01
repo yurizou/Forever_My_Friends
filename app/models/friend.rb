@@ -12,6 +12,15 @@ class Friend < ApplicationRecord
       男性: 2,
       未回答: 3
   }
+  
+  def self.search(word)
+    self.where("nickname LIKE ? OR last_name LIKE ? OR first_name LIKE ? ",
+            "%#{word}%",
+            "%#{word}%",
+            "%#{word}%"
+          )
+  end
+  
   # def self.looks(search, word)
   #   if search == "perfect_match"
   #     @friend = Friend.where("genre_id LIKE?", "#{word}")

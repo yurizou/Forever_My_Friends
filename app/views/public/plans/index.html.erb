@@ -8,14 +8,27 @@
         <% end %>
     </p>
   </div>
-  
    <% @plans.each do |plan| %>
     <%= link_to plan_path(plan) do %>
     <div class="row my-3">
         <div class="col-2 offset-3 my-2"><%= plan.plan_date.strftime("%Y年%m月%d日") %></div>
         <div class="col-3 my-2"><%= plan.title %></div>
-        <div class="col-3 my-2"><%= plan.status %></div>
+        <div class="col-3 my-2"><%= plan.status_i18n %></div>
     </div>
     <% end %>
    <% end %>
-</div>
+   <div class="row my-3">
+     <div class="col-5 offset-5"><%= paginate @plans %></div>
+   </div>
+   
+  </div>
+<!-- <script>-->
+<!--   var jscrollOption = {-->
+    <!--loadingHtml: '読み込み中・・・', //記事読み込み中の表示-->
+    <!--autoTrigger: false, // 自動で読み込むか否か、trueで自動、falseでボタンクリックとなる。-->
+    <!--padding: 20, // 指定したコンテンツの下かた何pxで読み込むかを指定(autoTrigger: trueの場合のみ)-->
+    <!--contentSelector: '.jscroll' // 読み込む範囲の指定-->
+<!--};-->
+<!--$('.jscroll').jscroll(jscrollOption);-->
+
+<!-- </script>-->

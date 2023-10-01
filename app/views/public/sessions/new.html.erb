@@ -1,28 +1,46 @@
 <div class="container">
-  <h2 class="col-3 mt-5">ログイン</h2>
-  <p class="col-3 mt-4 border border-text">会員の方はこちらからログイン</p>
-  <%= form_with model: @user, url: user_session_path do |f| %>
-  <div class="row my-3">
-    <div class="col-3"><%= f.label :メールアドレス %></div>
-    <div class="col-4"><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com" %></div>
-  </div>
-  <div class="row my-3">
-    <div class="col-3"><%= f.label :パスワード %></div>
-    <div class="col-3"><%= f.password_field :password, autocomplete: "current-password" %></div>
+  <div class="row my-4">
+    <h2 class="col-3 mb-4 offset-2 ">ログイン</h2>
   </div>
   
-   <div class="row my-3">
-    <div class="col-3"></div>
-    <div class="col-4 center-block text-light">
-      <%= f.submit "ログイン", class: "btn btn-primary" %>
+  <div class="row my-3">
+    <div class="col-3 offset-3">
+       <%= link_to guest_sign_in_path, method: :post  do %>
+           <i class="fa-regular fa-user"></i>
+           ゲストログイン
+        <% end %>
     </div>
-   </div>
-   <div class="row my-3">
-     <p class="col-2.5 border border-text">会員がお済みでない方は</p>
-   </div>
-   <div class="row my-3">
-      <p class="col-5"><%= link_to "こちら", new_user_registration_path %>から新規登録を行なってください。</p>
-   </div>
+  </div>
+  
+  <div class="row my-3">
+    <p class="col-3 offset-3 border border-text">会員の方はこちらからログイン</p>
+  </div>
+  
+   <%= form_with model: @user, url: user_session_path do |f| %>
+  <div class="row my-3">
+    <div class="col-2 offset-3"><%= f.label :メールアドレス %></div>
+    <div class="col-5"><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com" %></div>
+  </div>
+  
+  <div class="row my-3">
+    <div class="col-2 offset-3"><%= f.label :パスワード %></div>
+    <div class="col-5"><%= f.password_field :password, autocomplete: "current-password" %></div>
+  </div>
+  
+  <div class="row my-3">
+    <div class="col-4 offset-5"><%= f.submit "ログイン", class: "btn btn-primary" %></div>
+  </div>
+  
+  <div class="row my-3">
+     <p class="col-3  offset-3 border border-text">会員がお済みでない方は</p>
+  </div>
+  
+  <div class="row my-3">
+     <p class="col-5 offset-3"><%= link_to "こちら", new_user_registration_path %>から新規登録を行なってください。</p>
+  </div>
+</div>
+  
+  
    <% end %>
 </div>
 

@@ -65,4 +65,6 @@ gem 'dotenv-rails'
 
 gem "geocoder"
 
+gem "kaminari"
+
 gem "whenever"
