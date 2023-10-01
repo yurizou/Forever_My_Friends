@@ -9,6 +9,20 @@ class Plan < ApplicationRecord
      ready: 0, replan: 1, executed: 2, cancel: 3, sudden_cancel: 4
   }
 
+
+  def self.search(word,status)
+    if word.present?
+      self.where("title LIKE ? OR place LIKE ? OR status =  ? ",
+            "%#{word}%",
+            "%#{word}%",
+             Plan.statuses[status]
+          )
+    elsif status.present?
+      self.where(status:Plan.statuses[status])
+    end 
+  end
+  
+  
   # 検索方法分岐
   # def self.looks(search, word)
   #   if search == "perfect_match"

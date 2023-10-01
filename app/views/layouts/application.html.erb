@@ -23,16 +23,15 @@
           </div>
           <div class="col-md-6">ようこそ、<%= current_user.last_name %>さん！</div>
           <div class="col-md-4">
-            <% if controller.controller_name == 'friends' %>
             <div class="search-form">
               <%= form_with url: search_path, local: true, method: :get do |f| %>
               <%= f.text_field :word %>
-              <%#= f.select :range, options_for_select([['Friend'], ['Plan']]) %>
-              <%#= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backward_match"], ["部分一致","partial_match"]]) %>
+              <%= f.select :range, options_for_select([['Friend'], ['Plan']]) %>
+              <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backward_match"], ["部分一致","partial_match"]]) %>
+              <%=f.select :status, Plan.statuses.keys.map {|k| [I18n.t("enums.plan.status.#{k}"), k]}  %>
               <%= f.submit "検索", class: "btn btn-primary" %>
               <% end %>
             </div>
-            <% end %>
           </div>
      　　 </div>
      　　    <% elsif admin_signed_in? %>

@@ -1,15 +1,17 @@
 class SearchesController < ApplicationController
    before_action :authenticate_user!
-
+  
   def search
-    #@range = params[:range]
-    #binding.pry
+    
+    @friends = []
+    @plans =[]
+    @range = params[:range]
 
-    #if @range == "User"
+    if @range == "Friend"
       @friends = Friend.search(params[:word])
-
-    #else
-      #@books = Plan.looks(params[:search], params[:word])
-    #end
+    elsif @range == "Plan"
+      # @books = Plan.looks(params[:search], params[:word])
+      @plans = Plan.search(params[:word],params[:status])
+    end
   end
 end

@@ -17,6 +17,16 @@ namespace :task_sample do
 		  end
 		end
 		
+		Friend.all.each do |friend|
+			if friend.plans.where(六か月以上無い)
+				通知を登録する
+			end
+			elsif #プラン登録はあるが、最新のプラン予定日から半年間プランの登録がない
+				通知を登録する
+			end
+		end
+		
+		
 	
 	end
 end
