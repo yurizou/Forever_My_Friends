@@ -1,13 +1,40 @@
-<h2>トピック詳細</h2>
+<div class="container">
+  <div class="row my-4">
+    <h2 class="col-3 mb-5 offset-3">トピック詳細</h2>
+    <div class="col-2"><%= link_to '編集', edit_admin_topic_path, class: "btn btn-success" %></div>
+  </div>
 
-<%= link_to '編集', edit_admin_topic_path %>
+  <div class="row my-3">
+    <div class="col-3 offset-2">
+      <% if @topic.image.attached? %>
+        <%= image_tag topic.iamge, size: "300x200" %>
+      <% else %>
+        <%= image_tag 'no_image', size:"300x200" %>
+      <% end %>
+    </div>
 
-<% if @topic.image.attached? %>
-  <%= image_tag topic.iamge, size: "300x200" %>
-<% else %>
-  <%= image_tag 'no_image', size:"300x200" %>
-<% end %>
+    <div class="col-5">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>カテゴリ</th>
+            <th><%= @topic.category %></th>
+          </tr>
+          
+          <tr>
+            <th>タイトル</th>
+            <th><%= @topic.title %></th>
+          </tr>
+          
+          <tr>
+            <th>内容</th>
+            <th><%= @topic.article %></th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+</div>
 
-<p>カテゴリ</p><%= @topic.category %>
-<p>タイトル</p><%= @topic.title %>
-<p>内容</p><%= @topic.article %>
+
+

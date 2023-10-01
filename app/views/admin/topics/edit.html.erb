@@ -1,20 +1,40 @@
-<h2>トピック編集</h2>
+<div class="container">
+  <div class="row my-4">
+    <h2 class="col-3 mb-5 offset-3">トピック編集</h2>
+    <div class="col-3"><%= link_to '削除', admin_topic_path(@topic.id), method: :delete, class: "btn btn-danger" %></div>
+  </div>
+  
+  <%= form_with model: @topic, url: admin_topic_path, method: :patch do |f| %>
+  
+  <div class="row my-3">
+    <div class="col-2 offset-3"><%= f.label :カテゴリ %></div>
+    <div class="col-5"><%= f.text_field :category %></div>
+  </div>
+  
+  <div class="row my-3">
+    <div class="col-2 offset-3"><%= f.label :タイトル %></div>
+    <div class="col-5"><%= f.text_field :title %></div>
+  </div>
+  
+  <div class="row my-3">
+    <div class="col-2 offset-3"><%= f.label :内容 %></div>
+    <div class="col-5"><%= f.text_area :article %></div>
+  </div>
+  
+  <div class="row my-3">
+    <div class="col-2 offset-3"><%= f.label :写真イメージ %></div>
+    <div class="col-5"><%= f.file_field :image %></div>
+  </div>
+  
+  <div class="row my-4">
+    <div class="col-4 offset-5"><%= f.submit "変更内容を保存", class: "btn btn-success" %></div>
+  </div>
+  <% end %>
+</div>
 
-<%= link_to '削除', admin_topic_path(@topic.id), method: :delete %>
-<%= form_with model: @topic, url: admin_topic_path, method: :patch do |f| %>
 
-<%= f.label :カテゴリ %>
-<%= f.text_field :category %>
 
-<%= f.label :タイトル %>
-<%= f.text_field :title %>
 
-<%= f.label :内容 %>
-<%= f.text_area :article %>
 
-<%= f.label :写真イメージ %>
-<%= f.file_field :image %>
 
-<%= f.submit "変更内容を保存" %>
 
-<% end %>
