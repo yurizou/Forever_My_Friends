@@ -8,8 +8,8 @@
 </style>
 <div class="container mb-5">
   <div class="row justify-content-center">
-    <p class="mt-5 col--3">通知</p>
-    <p class="mt-5 col-9">
+    <p class="mt-5 col-1 offset-3">通知</p>
+    <p class="mt-5 col-7">
       <% @notices.each do |notice| %>
         <% friend = notice.friend.nickname %>
           <% if notice.birthday? %>
@@ -31,7 +31,10 @@
     </p>
     
   </div>
-    <table class="table">
+  
+  <div class="row my-3">
+    <div class="col-7 mb-5 offset-3">
+      <table class="table">
       <tbody>
         <tr>
           <th>管理人からお知らせ</th>
@@ -45,11 +48,8 @@
         <% end %>
       </tbody>
     </table> 
-   
-         
-         
-      
-  
+    </div>
+  </div>
 </div>
 
 

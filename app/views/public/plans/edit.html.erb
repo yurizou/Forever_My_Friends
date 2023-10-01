@@ -1,29 +1,53 @@
-<h2>スケジュール編集</h2>
+<div class=" container mb-5">
+  <div class="row my-4">
+    <h2 class="col-3 mb-5 offset-2">スケジュール編集</h2>
+    <div class="col-2 mb-5"><%= link_to "削除", plan_path(@plan.id), method: :delete, class: "btn btn-danger" %></div>
+  </div>
+   <%= form_with model: @plan, url: plan_path, method: :patch do |f| %>
+   <div class="row my-3 offset-3">
+    <div class="col-4 offset-2 my-2">
+        <%= f.collection_check_boxes(:friend_ids, @friends, :id, :last_name) do |b| %>
+        <%= b.label { b.check_box } %>
+      <% if b.object.image.attached? %>
+        <%= image_tag b.object.image, size: "50x50" %>
+      <% else %>
+        <%= image_tag 'no_image', size:"50x50" %>
+      <% end %>
+        <%= b.object.nickname %>
+      <% end %>
+    </div>
+  </div>
 
-<%= link_to "削除", plan_path(@plan.id), method: :delete %>
+  <div class="row my-3">
+    <div class="col-2 offset-3"><%= f.label :タイトル %></div>
+    <div class="col-5"><%= f.text_field :title %></div>
+  </div>
 
-<%= form_with model: @plan, url: plan_path, method: :patch do |f| %>
-<%= f.collection_check_boxes(:friend_ids, @friends, :id, :last_name) do |b| %>
-  <%= b.label { b.check_box } %>
+  <div class="row my-3">
+    <div class="col-2 offset-3"><%= f.label :日程 %></div>
+    <div class="col-5"><%= f.datetime_field :sample_at %></div>
+  </div>
 
-     <% if b.object.image.attached? %>
-      <%= image_tag b.object.image, size: "50x50" %>
-     <% else %>
-      <%= image_tag 'no_image', size:"50x50" %>
-     <% end %>
-      <%= b.object.nickname %>
-     <% end %>
-
-  <%= f.label :タイトル %>
-  <%= f.text_field :title %>
-
-  <%= f.label :日程 %>
-  <%= f.datetime_field :sample_at %>
-
-  <%= f.label :場所 %>
-  <%= f.text_field :place %>
-
-  <div id='map'></div>
+  <div class="row my-3">
+    <div class="col-2 offset-3"><%= f.label :場所 %></div>
+    <div class="col-5"><%= f.text_field :place %></div>
+  </div>
+  
+  <div class="row my-3">
+    <div class="col-2 offset-3"><%= f.label :メモ %></div>
+    <div class="col-5"><%= f.text_field :memo %></div>
+  </div>
+  
+  <div class="row my-3">
+    <div class="col-2 offset-3"><%= f.label :ステータス %></div>
+    <div class="col-5"><%= f.select :status, Plan.statuses.keys.map {|k| [I18n.t("enums.plan.status.#{k}"), k]}  %></div>
+  </div>
+  
+  <div class="row my-4　mb-5">
+    <div class="col-4 mt-5 offset-5"><%= f.submit "編集内容を保存", class: "btn btn-success" %></div>
+  </div>
+   <div class="row my-4 justify-content-center">
+      <div id='map'></div>
 
   <style>
     #map {
@@ -82,13 +106,18 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap" async defer></script>
 
 
-  <%= f.label :メモ %>
-  <%= f.text_field :memo %>
+   </div>
+    
+  
+  
+ <% end %>
+</div>
 
-  <%= f.label :ステータス %>
-  <%= f.select :status, Plan.statuses.keys.map {|k| [I18n.t("enums.plan.status.#{k}"), k]}  %>
+ 
 
-  <%= f.submit "編集内容を保存" %>
+  
+  
 
 
-  <% end %>
+ 
+ 
