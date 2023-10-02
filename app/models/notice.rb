@@ -1,4 +1,5 @@
 class Notice < ApplicationRecord
+  default_scope -> { order(created_at: :desc) }
   enum plan_id: { birthday: 0, meet_friend: 1, neglect_friend: 2 }
 
   belongs_to :friend

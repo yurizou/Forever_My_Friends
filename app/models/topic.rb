@@ -1,4 +1,5 @@
 class Topic < ApplicationRecord
+  default_scope -> { order(created_at: :desc) }
   has_one_attached :image
   
   #def get_image

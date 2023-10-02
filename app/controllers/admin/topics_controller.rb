@@ -12,8 +12,8 @@ class Admin::TopicsController < ApplicationController
     end
   end
 
-  def index
-    @topics = Topic.all
+  def index 
+     @topics  = Topic.page(params[:page]).per(5)
   end
 
   def edit
