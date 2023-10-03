@@ -8,27 +8,39 @@
 </style>
 <div class="container mb-5">
   <% if current_user %>
-    <div class="row justify-content-center">
-      <p class="mt-5 col-1 offset-1">通知</p>
-      <p class="mt-5 col-7">
-        <% @notices.each do |notice| %>
-          <% friend = notice.friend.nickname %>
-            <% if notice.plan_id == "birthday" %>
-              今日は<%= friend %>さんの誕生日です！
+    <div class="row">
+      <div class="mt-5 col-1 offset-3">通知</div>
+      <div class="mt-5 col-5">
+        <% if @birthday_notices.any? %>
+          <p>誕生日の通知</p>
+          <ul>
+            <% @birthday_notices.each do |notice| %>
+              <li>今日は<%= notice.friend.nickname %>さんの誕生日です！</li>
             <% end %>
-           
-          <% if notice.plan_id == "meet_friend" %>
-            今日は<%= friend %>さんと会う日です！
-          <% end %>
-       
-          <% if notice.plan_id =="neglect_friend" %>
-            <%= friend %>さんと連絡をとっていませんか？
-          <% end %>
+          </ul>
         <% end %>
-      </p>
+        
+        <% if @meet_friend_notices.any? %>
+          <p>予定日の通知</p>
+          <ul>
+            <% @meet_friend_notices.each do |notice| %>
+              <li>今日は<%= notice.friend.nickname %>さんと会う日です！</li>
+            <% end %>
+          </ul>
+        <% end %>
+        
+        <% if @neglect_friend_notices.any? %>
+          <p>疎遠の通知</p>
+          <ul>
+            <% @neglect_friend_notices.each do |notice| %>
+              <li><%= notice.friend.nickname %>さんと最近連絡を取っていませんか？</li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
     </div>
   <% end %>
-  
+
   <div class="row my-3">
     <div class="col-9 mb-5 offset-2">
       <table class="table">
@@ -46,7 +58,7 @@
         </tr>
         <% end %>
       </tbody>
-    </table> 
+    </table>
     </div>
   </div>
 </div>
