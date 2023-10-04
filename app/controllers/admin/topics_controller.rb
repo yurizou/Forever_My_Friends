@@ -12,12 +12,13 @@ class Admin::TopicsController < ApplicationController
     end
   end
 
-  def index 
+  def index
      @topics  = Topic.page(params[:page]).per(5)
   end
 
   def edit
     @topic = Topic.find(params[:id])
+
 
   end
 
@@ -26,7 +27,9 @@ class Admin::TopicsController < ApplicationController
   end
 
   def update
-
+    topic = Topic.find(params[:id])
+    topic.update(topic_params)
+    redirect_to admin_topic_path(topic.id)
   end
 
  def destroy
