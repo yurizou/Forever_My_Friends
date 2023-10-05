@@ -44,7 +44,7 @@ class Public::SessionsController < Devise::SessionsController
     return if !@user
     if @user.valid_password?(params[:user][:password])
       if @user.is_delete == true
-        redirect_to new_user_registration_path
+        redirect_to new_user_session_path, notice: "このユーザーは既に退会しています。"
       end
     end
    end

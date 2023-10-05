@@ -6,7 +6,7 @@ class Admin::TopicsController < ApplicationController
   def create
     @topic = Topic.new(topic_params)
     if @topic.save
-      redirect_to admin_topic_path(@topic.id)
+      redirect_to admin_topics_path
     else
       render:new
     end

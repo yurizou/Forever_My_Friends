@@ -3,6 +3,10 @@
     <h2 class="col-3 mb-4 offset-2 ">ログイン</h2>
   </div>
   
+  <div class="row my-2">
+    <div class="notice"><p id = "notice"><%= notice %></p></div>
+  </div>
+  
   <div class="row my-3">
     <div class="col-3 offset-3">
        <%= link_to guest_sign_in_path, method: :post  do %>
