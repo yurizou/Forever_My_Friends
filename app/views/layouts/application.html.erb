@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@700&family=M+PLUS+Rounded+1c:wght@700&family=Yellowtail&display=swap" rel="stylesheet">
 
     <script src="https://kit.fontawesome.com/cb478adb7c.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -18,17 +21,16 @@
       <div class="container">
       <% if user_signed_in? %>
         <div class="row">
-          <div class="col-md-2">
-            <%= link_to "ロゴ", root_path, class: "text-danger" %>
+          <div class="col-3 md-2">
+            <%= link_to "Forever My Friends", root_path, class: "logo" %>
           </div>
-          <div class="col-md-6">ようこそ、<%= current_user.last_name %>さん！</div>
-          <div class="col-md-4">
+          <div class="col-4 md-6 offset-1">ようこそ、<%= current_user.last_name %>さん！</div>
+          <div class="col-4 md-4">
             <div class="search-form">
               <%= form_with url: search_path, local: true, method: :get do |f| %>
               <%= f.text_field :word %>
-              <%= f.select :range, options_for_select([['Friend'], ['Plan']]) %>
-              <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","forward_match"],  ["後方一致","backward_match"], ["部分一致","partial_match"]]) %>
-              <%=f.select :status, Plan.statuses.keys.map {|k| [I18n.t("enums.plan.status.#{k}"), k]}  %>
+              <%= f.select :range, options_for_select([['フレンド検索', "friend"], ['スケジュール検索', "plan"]]) %>
+              <%= f.select :status, [['進行状況選択してください', nil]] + Plan.statuses.keys.map {|k| [I18n.t("enums.plan.status.#{k}"), k]} %>
               <%= f.submit "検索", class: "btn btn-primary" %>
               <% end %>
             </div>
@@ -36,18 +38,19 @@
      　　 </div>
      　　    <% elsif admin_signed_in? %>
          <div class="row">
-           <div class="col-md-2">
-            <%= link_to "ロゴ", root_path, class: "text-danger" %>
+           <div class="col-4">
+            <%= link_to "Forever My Friends", root_path, class: "logo" %>
            </div>
          </div>
             <% else %>
          <div class="row">
-           <div class="col-md-2">
-             <%= link_to "ロゴ", root_path, class: "text-danger" %>
+           <div class="col-4">
+             <%= link_to "Forever My Friends", root_path, class: "logo" %>
            </div>
           </div>
             <% end %>
     　</div>
+
      </header>
            <%= yield %>
      <footer class="fixed-bottom">

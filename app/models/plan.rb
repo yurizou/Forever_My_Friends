@@ -13,14 +13,12 @@ class Plan < ApplicationRecord
 
   def self.search(word,status)
     if word.present?
-      self.where("title LIKE ? OR place LIKE ? OR status =  ? ",
-            "%#{word}%",
-            "%#{word}%",
-             Plan.statuses[status]
-          )
+      self.where("title LIKE ? OR place LIKE ? ", "%#{word}%","%#{word}%" )
     elsif status.present?
       self.where(status:Plan.statuses[status])
-    end 
+    else
+      self.all
+    end
   end
   
   

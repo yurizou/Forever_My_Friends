@@ -7,9 +7,9 @@ class SearchesController < ApplicationController
     @plans =[]
     @range = params[:range]
 
-    if @range == "Friend"
+    if @range == "friend"
       @friends = Friend.search(params[:word])
-    elsif @range == "Plan"
+    elsif @range == "plan"
       # @books = Plan.looks(params[:search], params[:word])
       @plans = Plan.search(params[:word],params[:status])
     end
