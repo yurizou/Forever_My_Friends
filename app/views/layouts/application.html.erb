@@ -17,7 +17,8 @@
   </head>
 
   <body>
-    <header class="bg-secondary text-white">
+    <div class="wrapper">
+     <header class="bg-secondary text-white page-header">
       <div class="container">
       <% if user_signed_in? %>
         <div class="row">
@@ -52,8 +53,8 @@
     　</div>
 
      </header>
-           <%= yield %>
-     <footer class="bg-secondary text-white">
+          <main class="page-body"><%= yield %></main>
+     <footer class="bg-secondary text-white page-footer">
       <% if user_signed_in? %>
       <div class="container">
         <div class="row">
@@ -79,5 +80,6 @@
       <% end %>
       </div>
    </footer>
+    </div>
   </body>
 </html>
