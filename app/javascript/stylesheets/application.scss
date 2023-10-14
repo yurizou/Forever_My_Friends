@@ -8,6 +8,11 @@
   font-size: 35px;
 }
 
+.logo:hover {
+    color: white;
+    text-decoration: none;
+}
+
 html, body {
     box-sizing: border-box;
     height: 100%;
@@ -28,10 +33,13 @@ html, body {
     flex-grow: 1;
 }
 
+body {
+    background-image: url(/images/back.jpg);
+}
 
-
-
-
+header, footer {
+    opacity: 0.5;
+}
 
 
 
