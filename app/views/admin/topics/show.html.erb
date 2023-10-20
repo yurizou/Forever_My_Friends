@@ -7,9 +7,9 @@
   <div class="row my-3">
     <div class="col-2 offset-1">
       <% if @topic.image.attached? %>
-        <%= image_tag topic.iamge, size: "300x200" %>
+        <%= image_tag topic.iamge, size: "200x200" %>
       <% else %>
-        <%= image_tag 'no_image.jpg', size:"300x200" %>
+        <%= image_tag 'no_image.jpg', size:"200x200" %>
       <% end %>
     </div>
 
@@ -20,12 +20,12 @@
             <th>カテゴリ</th>
             <th><%= @topic.category %></th>
           </tr>
-          
+
           <tr>
             <th>タイトル</th>
             <th><%= @topic.title %></th>
           </tr>
-          
+
           <tr>
             <th>内容</th>
             <th><%= @topic.article %></th>
