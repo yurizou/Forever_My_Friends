@@ -4,20 +4,19 @@
     <div class="col-2 mb-5"><%= link_to "削除", plan_path(@plan.id), method: :delete, class: "btn btn-danger" %></div>
   </div>
    <%= form_with model: @plan, url: plan_path, method: :patch do |f| %>
-   <div class="row my-3 offset-3">
-    <div class="col-4 offset-2 my-2">
+    <ul class="row mb-5" style="list-style:none;gap:1em;">
         <%= f.collection_check_boxes(:friend_ids, @friends, :id, :last_name) do |b| %>
-        <%= b.label { b.check_box } %>
-      <% if b.object.image.attached? %>
-        <%= image_tag b.object.image, size: "50x50" %>
-      <% else %>
-        <%= image_tag asset_path('no_image.jpg'), size: "50x50" %>
+        <li>
+          <%= b.label { b.check_box } %>
+          <% if b.object.image.attached? %>
+            <%= image_tag b.object.image, size: "50x50" %>
+          <% else %>
+            <%= image_tag asset_path('no_image.jpg'), size: "50x50" %>
+          <% end %>
+            <%= b.object.nickname %>
+        </li>
       <% end %>
-        <%= b.object.nickname %>
-      <% end %>
-    </div>
-  </div>
-
+    </ul>
   <div class="row my-3">
     <div class="col-2 offset-3"><%= f.label :タイトル %></div>
     <div class="col-5"><%= f.text_field :title %></div>
