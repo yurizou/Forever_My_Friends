@@ -47,13 +47,13 @@
       <tbody>
         <tr>
           <th>日付</th>
-          <th sytle="width: 300px;">管理人からお知らせ</th>
+          <th class="text-nowrap">管理人からお知らせ</th>
           <th>詳細</th>
         </tr>
          <% @topics.each do |topic| %>
         <tr>
            <th><%= topic.created_at.strftime("%Y/%m/%d") %></th>
-           <th style="width: 300px;"><%= topic.title %></th>
+           <th class="text-nowrap"><%= topic.title %></th>
            <th><%= topic.article %></th>
         </tr>
         <% end %>

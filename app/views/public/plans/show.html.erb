@@ -3,47 +3,59 @@
     <h2 class="col-3 mb-5 offset-2">スケジュール詳細</h2>
     <div class="col-2 mb-5"><%= link_to "編集", edit_plan_path, class: "btn btn-success" %></div>
   </div>
-  
+
   <div class="row my-3">
     <div class="col-5  mb-5 offset-3">
        <table class="table">
         <thead>
           <tr>
-            <th>タイトル</th>
+            <th class="text-nowrap">タイトル</th>
             <th><%= @plan.title %></th>
           </tr>
-        
+
           <tr>
-            <th>日程</th>
-            <th><%= l @plan.plan_date, format: :short %></th>
+            <th class="text-nowrap">日程</th>
+            <th><%= @plan.plan_date.strftime("%Y年%m月%d日 %H:%M") %></th>
           </tr>
-        
           <tr>
-            <th>場所</th>
-            <th><%= @plan.place %></th>
+            <th class="text-nowrap align-middle">フレンド</th>
+            <th>
+              <%  @plan.friends.each do |friend| %>
+              <div><%= friend.nickname %></div>
+              <% end %>
+            </th>
+          </tr>
+          <tr>
+            <th class="text-nowrap align-middle">場所</th>
+            <th>
+              <%= @plan.place %>
+              <div id='map'></div>
+            </th>
           </tr>
            <tr>
-             <th>メモ</th>
+             <th class="text-nowrap">メモ</th>
              <th><%= @plan.memo %></th>
            </tr>
-          
+
             <tr>
-              <th>ステータス</th>
+              <th class="text-nowrap">ステータス</th>
               <th><%= @plan.status_i18n %></th>
             </tr>
-       
-        <div id='map'></div>
-
-          <style>
+           </thead>
+        </table>
+      </div>
+    </div>
+    
+             <style>
             #map {
               height: 400px;
               width: 400px;
             }
           </style>
-        
+
           <script>
             let map
-        
+
             function initMap(){
               geocoder = new google.maps.Geocoder()
               var url = window.location.href; //URLを取得
@@ -68,7 +80,7 @@
                        position:  {lat: latitude, lng: longitude},
                        map: map
                     });
-        
+
                     } else {
                       console.log("Geocode 失敗: " + status);
                        map = new google.maps.Map(document.getElementById('map'), {
@@ -84,13 +96,6 @@
                   }
             });
             }
-        
+
           </script>
           <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap" async defer></script>
-          
-          
-           </thead>
-        </table>
-      </div>
-    </div>
-    
