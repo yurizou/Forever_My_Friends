@@ -33,8 +33,10 @@ html, body {
     flex-grow: 1;
 }
 
-body {
+.wrapper {
     background-image: url(../images/back.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .header {

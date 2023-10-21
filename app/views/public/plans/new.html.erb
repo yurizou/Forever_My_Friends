@@ -2,51 +2,53 @@
   <div class="row my-4">
     <h2 class="col-4 mb-5 offset-3">スケジュールを立てる</h2>
   </div>
-  
+
   <%= form_with model: @plan, url: plans_path do |f| %>
-  <div class="row my-3">
-    <div class="col-4 offset-3">
+    <ul class="row mb-5" style="list-style:none;gap:1em;">
        <%= f.collection_check_boxes(:friend_ids, @friends, :id, :last_name) do |b| %>
-       <%= b.label { b.check_box } %>
-       <% if b.object.image.attached? %>
-        <%= image_tag b.object.image, size: "50x50" %>
-       <% else %>
-        <%= image_tag asset_path('no_image.jpg', size:"50x50") %>
+       <!--<div class="col-6 offset-3" >-->
+       <li>
+         <%= b.label { b.check_box } %>
+         <% if b.object.image.attached? %>
+          <%= image_tag b.object.image, size: "50x50" %>
+         <% else %>
+          <%= image_tag asset_path('no_image.jpg'), size: "50x50" %>
+         <% end %>
+         <%= b.object.nickname %>
+       </li>
        <% end %>
-        <%= b.object.nickname %>
-       <% end %>
-    </div>
-  </div>
-  
+       <!--</div>-->
+    </ul>
+
   <div class="row my-3">
     <div class="col-2 offset-3"><%= f.label :タイトル %></div>
     <div class="col-5"><%= f.text_field :title %></div>
   </div>
-  
+
   <div class="row my-3">
     <div class="col-2 offset-3"><%= f.label :日程 %></div>
     <div class="col-5"><%= f.datetime_field :plan_date %></div>
   </div>
-  
+
   <div class="row my-3">
     <div class="col-2 offset-3"><%= f.label :場所 %></div>
     <div class="col-5"><%= f.text_field :place %></div>
   </div>
-  
+
   <div class="row my-3">
     <div class="col-2 offset-3"><%= f.label :メモ %></div>
     <div class="col-5"><%= f.text_field :memo %></div>
   </div>
-  
+
   <div class="row my-3">
     <div class="col-2 offset-3"><%= f.label :ステータス %></div>
     <div class="col-5"><%= f.select :status, Plan.statuses.keys.map {|k| [I18n.t("enums.plan.status.#{k}"), k]}  %></div>
   </div>
-  
+
   <div class="row my-4　mb-5">
     <div class="col-4 mt-5 offset-5"><%= f.submit "保存", class: "btn btn-primary" %></div>
   </div>
-  
+
   <div class="row my-4">
     <div class="col-3 mb-5 offset-3">
       <div id='map'></div>
@@ -56,29 +58,29 @@
             width: 400px;
           }
         </style>
-      
+
         <script>
           let map
-      
+
           console.log('new');
           function initMap(){
             geocoder = new google.maps.Geocoder()
-      
-      
+
+
             map = new google.maps.Map(document.getElementById('map'), {
               center: {lat: 34.6931949, lng:135.194472},
               zoom: 12,
             });
-      
-      
-      
+
+
+
             // marker = new google.maps.Marker({
             //   position:  {lat: 34.6650617, lng:135.4961973},
             //   map: map
             // });
           }
         </script>
-      
+
         <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY'] %>&callback=initMap" async defer></script>
       </div>
     </div>
@@ -86,16 +88,16 @@
 </div>
 
 <!--<div class="container d-flex justify-contant-center">-->
-  
 
- 
-  
 
-  
-  
 
-  
-  
 
-  
+
+
+
+
+
+
+
+
 
