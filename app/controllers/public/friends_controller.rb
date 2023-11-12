@@ -15,7 +15,7 @@ class Public::FriendsController < ApplicationController
     @friend.user_id = current_user.id
     @friend.save
     redirect_to friend_path(@friend)
-    
+
 
 
     #if @friend.save
@@ -44,7 +44,7 @@ class Public::FriendsController < ApplicationController
 
   def destroy
     friend = Friend.find(params[:id])
-    current_user.friend.destroy
+    friend.destroy
     flash[:notice] = "フレンドを削除しました"
     redirect_to friends_path
   end
