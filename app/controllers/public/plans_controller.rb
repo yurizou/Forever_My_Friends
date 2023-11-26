@@ -21,7 +21,7 @@ class Public::PlansController < ApplicationController
   end
 
   def show
-    @plan = Plan.find(params[:id])
+    @plan = current_user.plans.find(params[:id])
   end
 
   def edit
