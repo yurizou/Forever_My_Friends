@@ -28,7 +28,7 @@ class Public::FriendsController < ApplicationController
 
 
   def show
-    @friend = Friend.find(params[:id])
+    @friend = current_user.friends.find(params[:id])
     #@status = current_user.@friend.plan.status
   end
 
