@@ -11,7 +11,7 @@ class SearchesController < ApplicationController
       @friends = current_user.friends.search(params[:word])
     elsif @range == "plan"
       # @books = Plan.looks(params[:search], params[:word])
-      @plans = Plan.search(params[:word],params[:status])
+      @plans = current_user.plans.search(params[:word],params[:status])
     end
   end
 end
