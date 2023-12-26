@@ -19,7 +19,7 @@
       <%= link_to (friend_path(friend.id)) do %>
   <div class="row my-2 justify-content-center">
 
-      <div class="col-2 offset-2 my-3">
+      <div class="col-2 offset-1 my-3">
          <% if friend.image.attached? %>
          <%= image_tag friend.image, size: "60x60" %>
          <% else %>
