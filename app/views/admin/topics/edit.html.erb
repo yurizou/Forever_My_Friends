@@ -7,13 +7,13 @@
   <%= form_with model: @topic, url: admin_topic_path, method: :patch do |f| %>
   
   <div class="row my-3">
-    <div class="col-2 offset-3"><%= f.label :カテゴリ %></div>
+    <div class="col-lg-2 offset-3"><%= f.label :カテゴリ %></div>
     <div class="col-5"><%= f.text_field :category %></div>
   </div>
   
   <div class="row my-3">
-    <div class="col-2 offset-3"><%= f.label :タイトル %></div>
-    <div class="col-5"><%= f.text_field :title %></div>
+    <div class="col-lg-2 offset-3"><%= f.label :タイトル %></div>
+    <div class="col-lg-5"><%= f.text_field :title %></div>
   </div>
   
   <div class="row my-3">
