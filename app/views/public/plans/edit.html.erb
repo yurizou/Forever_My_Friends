@@ -1,7 +1,7 @@
 <div class=" container mb-5">
   <div class="row my-4">
-    <h2 class="col-3 mb-5 offset-2">スケジュール編集</h2>
-    <div class="col-2 mb-5"><%= link_to "削除", plan_path(@plan.id), method: :delete, class: "btn btn-danger" %></div>
+    <h2 class="col-lg-3 mb-5 offset-2">スケジュール編集</h2>
+    <div class="col-lg-2 mb-5"><%= link_to "削除", plan_path(@plan.id), method: :delete, class: "btn btn-danger" %></div>
   </div>
    <%= form_with model: @plan, url: plan_path, method: :patch do |f| %>
     <ul class="row mb-5" style="list-style:none;gap:1em;">
