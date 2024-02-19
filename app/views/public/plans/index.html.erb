@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row my-4">
-    <h2 class="col-3 mb-5 offset-3">スケジュール一覧</h2>
-    <p class="col-2">
+    <h2 class="col-lg-3 mb-5 offset-3">スケジュール一覧</h2>
+    <p class="col-lg-2">
         <%= link_to new_plan_path do %>
            <i class="fa-solid fa-people-pulling"></i>
            予定を立てる
@@ -11,14 +11,14 @@
    <% @plans.each do |plan| %>
     <%= link_to plan_path(plan) do %>
     <div class="row my-3">
-        <div class="col-2 offset-3 my-2"><%= plan.plan_date.strftime("%Y年%m月%d日") %></div>
-        <div class="col-3 my-2"><%= plan.title %></div>
-        <div class="col-3 my-2"><%= plan.status_i18n %></div>
+        <div class="col-lg-2 offset-3 my-2"><%= plan.plan_date.strftime("%Y年%m月%d日") %></div>
+        <div class="col-lg-3 my-2"><%= plan.title %></div>
+        <div class="col-lg-3 my-2"><%= plan.status_i18n %></div>
     </div>
     <% end %>
    <% end %>
    <div class="row my-3">
-     <div class="col-5 offset-5"><%= paginate @plans %></div>
+     <div class="col-lg-5 offset-5"><%= paginate @plans %></div>
    </div>
    
   </div>
